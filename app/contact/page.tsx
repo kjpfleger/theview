@@ -4,7 +4,7 @@ import { useEffect } from "react"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import { Phone, Mail, MapPin, Clock } from "lucide-react"
-import Footer from "../../components/Footer";
+import Footer from "@/components/footer";
 
 export default function ContactPage() {
   useEffect(() => {
