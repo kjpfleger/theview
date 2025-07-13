@@ -1,122 +1,109 @@
 "use client"
 
 import type React from "react"
+import { useState } from "react"
+import Link from "next/link"
+import Image from "next/image"
+import { Menu, X } from "lucide-react"
+import { Button } from "@/components/ui/button"
 import { Inter } from "next/font/google"
 import "../styles/globals.css";
-import { ThemeProvider } from "@/components/theme-provider"
-import { Toaster } from "@/components/ui/sonner"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Phone, Menu, X } from "lucide-react"
-import { useState } from "react"
-import Image from "next/image"
 
-const inter = Inter({ subsets: ["latin"] })
 
-function Navigation() {
+
+export default function ClientLayout({ children }: { children: React.ReactNode }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-16 items-center justify-between">
-        <Link href="/" className="flex items-center space-x-2">
-          <Image
-            src="/images/the-view-logo.png"
-            alt="The View"
-            width={120}
-            height={40}
-            className="h-10 w-auto"
-            priority
-          />
-        </Link>
+    <div className="min-h-screen bg-white">
+      {/* Header */}
+      <header className="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50 h-24">
+        <div className="w-full max-w-none px-8 h-full">
+          <div className="flex items-center justify-between h-full">
+            {/* Logo */}
+            <Link href="/" className="flex-shrink-0 pl-8">
+              <Image
+                src="/images/the-view-logo.png"
+                alt="The View Apartments"
+                width={240}
+                height={80}
+                className="h-20 w-auto"
+                priority
+              />
+            </Link>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-6">
-          <Link href="/" className="text-sm font-medium hover:text-primary transition-colors">
-            Home
-          </Link>
-          <Link href="/floorplans" className="text-sm font-medium hover:text-primary transition-colors">
-            Floor Plans
-          </Link>
-          <Link href="/gallery" className="text-sm font-medium hover:text-primary transition-colors">
-            Gallery
-          </Link>
-          <Link href="/contact" className="text-sm font-medium hover:text-primary transition-colors">
-            FAQ
-          </Link>
-        </nav>
+            {/* Desktop Navigation */}
+            <nav className="hidden lg:flex items-center space-x-8 pr-8">
+              <Link href="/floorplans" className="text-black hover:text-orange-600 font-medium transition-colors">
+                Floor Plans
+              </Link>
+              <Link href="/amenities" className="text-black hover:text-orange-600 font-medium transition-colors">
+                Amenities
+              </Link>
+              <Link href="/gallery" className="text-black hover:text-orange-600 font-medium transition-colors">
+                Gallery
+              </Link>
+              <Link href="/faq" className="text-black hover:text-orange-600 font-medium transition-colors">
+                FAQs
+              </Link>
+              <Link href="/contact" className="text-black hover:text-orange-600 font-medium transition-colors">
+                Contact
+              </Link>
+            </nav>
 
-        {/* Desktop Contact */}
-        <div className="hidden md:flex items-center space-x-4">
-          <span className="flex items-center space-x-2 text-sm font-medium">
-            <Phone className="h-4 w-4" />
-            <span>(980) 288-4040</span>
-          </span>
+            {/* Mobile menu button */}
+            <Button variant="ghost" size="sm" className="lg:hidden pr-8" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </Button>
+          </div>
         </div>
 
-        {/* Mobile Menu Button */}
-        <Button variant="ghost" size="sm" className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-          {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-        </Button>
-      </div>
+        {/* Mobile Navigation */}
+        {isMenuOpen && (
+          <div className="lg:hidden bg-white border-t border-gray-200 shadow-lg">
+            <nav className="px-4 py-4 space-y-4">
+              <Link
+                href="/floorplans"
+                className="block text-black hover:text-orange-600 font-medium transition-colors py-2"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Floor Plans
+              </Link>
+              <Link
+                href="/amenities"
+                className="block text-black hover:text-orange-600 font-medium transition-colors py-2"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Amenities
+              </Link>
+              <Link
+                href="/gallery"
+                className="block text-black hover:text-orange-600 font-medium transition-colors py-2"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Gallery
+              </Link>
+              <Link
+                href="/faq"
+                className="block text-black hover:text-orange-600 font-medium transition-colors py-2"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                FAQs
+              </Link>
+              <Link
+                href="/contact"
+                className="block text-black hover:text-orange-600 font-medium transition-colors py-2"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Contact
+              </Link>
+            </nav>
+          </div>
+        )}
+      </header>
 
-      {/* Mobile Navigation */}
-      {isMenuOpen && (
-        <div className="md:hidden border-t bg-background">
-          <nav className="container py-4 space-y-4">
-            <Link
-              href="/"
-              className="block text-sm font-medium hover:text-primary transition-colors"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Home
-            </Link>
-            <Link
-              href="/floorplans"
-              className="block text-sm font-medium hover:text-primary transition-colors"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Floor Plans
-            </Link>
-            <Link
-              href="/gallery"
-              className="block text-sm font-medium hover:text-primary transition-colors"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Gallery
-            </Link>
-            <Link
-              href="/contact"
-              className="block text-sm font-medium hover:text-primary transition-colors"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              FAQ
-            </Link>
-            <span className="flex items-center space-x-2 text-sm font-medium pt-4 border-t">
-              <Phone className="h-4 w-4" />
-              <span>(980) 288-4040</span>
-            </span>
-          </nav>
-        </div>
-      )}
-    </header>
-  )
-}
-
-export default function ClientLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
-  return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
-          <Navigation />
-          <main>{children}</main>
-          <Toaster />
-        </ThemeProvider>
-      </body>
-    </html>
+      {/* Main Content */}
+      <main>{children}</main>
+    </div>
   )
 }
