@@ -22,7 +22,7 @@ import Link from "next/link"
 import { motion } from "framer-motion"
 import Image from "next/image"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
-import Footer from "@/components/Footer"
+import Footer from "@/components/footer";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 60 },

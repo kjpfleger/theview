@@ -6,7 +6,7 @@ import { Badge } from "@/components/ui/badge"
 import { Waves, Utensils, Sun, Trash2, Zap, Thermometer, Maximize, Car, Home, Bath, Check } from "lucide-react"
 import { motion } from "framer-motion"
 import Image from "next/image"
-import Footer from "@/components/Footer"
+import Footer from "@/components/footer";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 60 },
