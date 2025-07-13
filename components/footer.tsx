@@ -1,29 +1,26 @@
 "use client"
 
 import { Phone } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { motion } from "framer-motion"
 
 export default function Footer() {
   return (
-    <footer className="bg-gradient-to-r from-orange-600 to-orange-500 text-white mt-16">
-      <div className="container mx-auto px-6 py-12 flex flex-col items-center gap-6 text-center">
-        <h2 className="text-3xl md:text-4xl font-bold leading-tight">
-          Ready to Make&nbsp;
-          <span className="whitespace-nowrap">The View</span>&nbsp;Your Home?
-        </h2>
-
-        <a
-          href="tel:9802884040"
-          className="flex items-center gap-2 text-2xl md:text-3xl font-semibold hover:underline focus-visible:underline"
+    <section className="py-12 md:py-20 bg-gradient-to-r from-orange-600 to-orange-700 text-white w-full overflow-x-hidden">
+      <div className="container mx-auto px-4 text-center max-w-full">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
         >
-          <Phone className="size-6" />
-          (980)-288-4040
-        </a>
-
-        <Button asChild size="lg" className="bg-white text-orange-600 hover:bg-orange-50 font-semibold">
-          <a href="/contact">Schedule a Tour</a>
-        </Button>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">Ready to Make The View Your Home?</h2>
+          <p className="text-lg md:text-xl mb-8 text-orange-100 max-w-2xl mx-auto">Contact us today.</p>
+          <div className="flex items-center justify-center space-x-2 text-xl md:text-2xl font-semibold">
+            <Phone className="h-5 w-5 md:h-6 md:w-6 flex-shrink-0" />
+            <span>Call (980) 288-4040</span>
+          </div>
+        </motion.div>
       </div>
-    </footer>
+    </section>
   )
 }
