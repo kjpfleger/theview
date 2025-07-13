@@ -13,11 +13,11 @@ export default function Footer() {
         </h2>
 
         <a
-          href="tel:8282628188"
+          href="tel:9802884040"
           className="flex items-center gap-2 text-2xl md:text-3xl font-semibold hover:underline focus-visible:underline"
         >
           <Phone className="size-6" />
-          828-262-8188
+          (980)-288-4040
         </a>
 
         <Button asChild size="lg" className="bg-white text-orange-600 hover:bg-orange-50 font-semibold">
