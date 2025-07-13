@@ -8,7 +8,7 @@ import { Bed, Bath, Maximize, ArrowRight, Check, Star, DollarSign } from "lucide
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
-import Footer from "@/components/Footer";
+import Footer from "../../components/Footer";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 60 },

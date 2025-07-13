@@ -6,7 +6,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Phone, Mail, MapPin } from "lucide-react"
 import Link from "next/link"
 import { motion } from "framer-motion"
-import Footer from "@/components/Footer";
+import Footer from "../../components/Footer";
 
 const faqs = [
   {

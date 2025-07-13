@@ -7,7 +7,7 @@ import { Card } from "@/components/ui/card"
 import { Camera, Clock, ArrowRight } from "lucide-react"
 import Link from "next/link"
 import { motion } from "framer-motion"
-import Footer from "@/components/Footer"
+import Footer from "../../components/Footer";
 
 export default function GalleryPage() {
   useEffect(() => {

@@ -7,7 +7,7 @@ import { Badge } from "@/components/ui/badge"
 import { Bed, Bath, Maximize, Check } from "lucide-react"
 import Link from "next/link"
 import { motion } from "framer-motion"
-import Footer from "@/components/footer";
+import Footer from "../components/Footer";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 60 },
