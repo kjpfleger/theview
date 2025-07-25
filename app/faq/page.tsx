@@ -6,13 +6,13 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Phone, Mail, MapPin } from "lucide-react"
 import Link from "next/link"
 import { motion } from "framer-motion"
-import Footer from "@/components/footer";
+import Footer from "@/components/Footer"
 
 const faqs = [
   {
     question: "What utilities are included in the rent?",
     answer:
-      "All utilities are included in your rent: electricity, water, sewer, trash, and high-speed internet. You only need to worry about your monthly rent payment.",
+      "Trash removal is included in your rent. Residents are responsible for water, electricity and internet. Residents are responsible for setting up the appropriate accounts directly with each utility company.",
   },
   {
     question: "Is parking available?",

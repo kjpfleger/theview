@@ -7,7 +7,7 @@ import { Badge } from "@/components/ui/badge"
 import { Bed, Bath, Maximize, Check } from "lucide-react"
 import Link from "next/link"
 import { motion } from "framer-motion"
-import Footer from "@/components/footer";
+import Footer from "@/components/Footer"
 
 const fadeInUp = {
   initial: { opacity: 0, y: 60 },
@@ -135,9 +135,8 @@ export default function Unit101Page() {
                   className="w-full h-full object-cover"
                   loading="lazy"
                   onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    console.log("Image failed to load:", target.src);
-                    target.style.display = "none";
+                    console.log("Image failed to load:", e.target.src)
+                    e.target.style.display = "none"
                   }}
                 />
               </div>
@@ -150,9 +149,8 @@ export default function Unit101Page() {
                   className="w-full h-full object-cover"
                   loading="lazy"
                   onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    console.log("Image failed to load:", target.src);
-                    target.style.display = "none";
+                    console.log("Image failed to load:", e.target.src)
+                    e.target.style.display = "none"
                   }}
                 />
               </div>
