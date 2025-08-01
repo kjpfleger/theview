@@ -21,7 +21,7 @@ const faqs = [
   {
     question: "Are pets allowed?",
     answer:
-      "We have a pet-friendly policy. Please contact us to discuss specific pet policies, fees, and restrictions.",
+      "No.",
   },
   {
     question: "What is the lease term?",
@@ -35,7 +35,7 @@ const faqs = [
   {
     question: "What appliances are included?",
     answer:
-      "All units come fully equipped with stainless steel appliances including refrigerator, stove, oven, dishwasher, garbage disposal, and in-unit washer and dryer.",
+      "All units come fully equipped with stainless steel appliances including refrigerator, stove, oven, dishwasher, and in-unit washer and dryer.",
   },
   {
     question: "How close is it to App State?",
