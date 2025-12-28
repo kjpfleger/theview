@@ -46,6 +46,14 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
               <Link href="/contact" className="text-black hover:text-orange-600 font-medium transition-colors">
                 Contact
               </Link>
+              <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSekcj-ZKxZZ8ExLAw3by93i0y81oIp2p3lRoThEAJtWIdBvEw/viewform"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-orange-600 hover:bg-white text-white hover:text-orange-600 border-2 border-orange-600 font-semibold px-6 py-2.5 rounded-md transition-all duration-200"
+              >
+                APPLY
+              </a>
             </nav>
 
             {/* Mobile menu button */}
@@ -94,6 +102,15 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
               >
                 Contact
               </Link>
+              <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSekcj-ZKxZZ8ExLAw3by93i0y81oIp2p3lRoThEAJtWIdBvEw/viewform"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block bg-orange-600 hover:bg-white text-white hover:text-orange-600 border-2 border-orange-600 font-semibold px-6 py-2.5 rounded-md transition-all duration-200 text-center"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                APPLY
+              </a>
             </nav>
           </div>
         )}

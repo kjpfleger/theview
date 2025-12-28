@@ -2,7 +2,7 @@
 
 import type React from "react"
 import { Inter } from "next/font/google"
-import "./globals.css"import "../styles/globals.css";
+import './globals.css"import "../styles/globals.css'
 import { ThemeProvider } from "@/components/theme-provider"
 import { Toaster } from "@/components/ui/sonner"
 import Link from "next/link"
@@ -50,7 +50,7 @@ function Navigation() {
         <div className="hidden md:flex items-center flex-shrink-0 pr-6">
           <span className="flex items-center space-x-2 text-sm font-medium">
             <Phone className="h-4 w-4" />
-            <span>(980) 288-4040</span>
+            <span>(828) 414-1040</span>
           </span>
         </div>
 
@@ -89,7 +89,7 @@ function Navigation() {
             </Link>
             <span className="flex items-center space-x-2 text-sm font-medium pt-4 border-t">
               <Phone className="h-4 w-4" />
-              <span>(980) 288-4040</span>
+              <span>(828) 414-1040</span>
             </span>
           </nav>
         </div>

@@ -17,7 +17,7 @@ export default function Footer() {
           <p className="text-lg md:text-xl mb-8 text-orange-100 max-w-2xl mx-auto">Contact us today.</p>
           <div className="flex items-center justify-center space-x-2 text-xl md:text-2xl font-semibold">
             <Phone className="h-5 w-5 md:h-6 md:w-6 flex-shrink-0" />
-            <span>Call (980) 288-4040</span>
+            <span>Call (828) 414-1040</span>
           </div>
         </motion.div>
       </div>

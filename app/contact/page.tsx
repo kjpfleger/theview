@@ -3,7 +3,7 @@
 import { useEffect } from "react"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
-import { Phone, Mail, MapPin, Clock } from "lucide-react"
+import { Phone, Mail, MapPin } from "lucide-react"
 import Footer from "@/components/Footer"
 
 export default function ContactPage() {
@@ -17,9 +17,7 @@ export default function ContactPage() {
       <div className="bg-gray-50 py-16">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <Badge className="mb-4 bg-orange-600 hover:bg-orange-700 text-white">Contact Us</Badge>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            GET IN TOUCH
-          </h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">GET IN TOUCH</h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Ready to make The View your home? Contact us today to schedule a tour, ask questions, or get more
             information about our apartments.
@@ -43,10 +41,10 @@ export default function ContactPage() {
                       <h3 className="text-xl font-semibold mb-2">Phone</h3>
                       <p className="text-gray-600 mb-2">Call us directly to speak with our leasing team</p>
                       <a
-                        href="tel:9802884040"
+                        href="tel:8284141040"
                         className="text-orange-600 font-semibold hover:text-orange-700 transition-colors"
                       >
-                        (980) 288-4040
+                        (828) 414-1040
                       </a>
                     </div>
                   </div>
