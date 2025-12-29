@@ -2,22 +2,7 @@
 import "../styles/globals.css"
 import { Card, CardContent } from "@/components/ui/card"
 import { SharedButton } from "@/components/shared-button"
-import {
-  MapPin,
-  Car,
-  Waves,
-  Bed,
-  Bath,
-  Maximize,
-  Star,
-  Utensils,
-  Thermometer,
-  Building,
-  Users,
-  Sun,
-  Trash2,
-  Home,
-} from "lucide-react"
+import { MapPin, Car, Waves, Bed, Bath, Maximize, Star, Utensils, Thermometer, Sun, Trash2, Home } from "lucide-react"
 import { motion } from "framer-motion"
 import Image from "next/image"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
@@ -55,8 +40,8 @@ export default function HomePage() {
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
             <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold mb-6 text-white">THE VIEW</h1>
             <p className="text-lg md:text-xl lg:text-2xl mb-4 text-white">Luxury Living in Boone, NC</p>
-            <p className="text-base md:text-lg lg:text-xl mb-8 text-white max-w-2xl mx-auto">
-              Newly built apartments near App State with modern amenities, mountain views, and unbeatable convenience.
+            <p className="text-lg md:text-xl mb-10 max-w-4xl mx-auto leading-relaxed text-center text-background">
+              {"Newly built apartments near App State with modern amenities, mountain views, and unbeatable convenience."}
             </p>
             <div className="flex justify-center">
               <SharedButton href="/floorplans" size="lg">
@@ -68,51 +53,11 @@ export default function HomePage() {
       </section>
 
       {/* About Section */}
-      <section className="py-16 md:py-24 bg-white w-full overflow-x-hidden">
+      <section className="py-16 md:py-24 w-full overflow-x-hidden">
         <div className="w-full max-w-none px-8">
-          <div className="grid lg:grid-cols-12 gap-12 items-center">
-            {/* Left side icons */}
-            <div className="lg:col-span-2 flex lg:flex-col flex-row justify-center lg:justify-start space-x-4 lg:space-x-0 lg:space-y-6">
-              <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                viewport={{ once: true }}
-                className="w-12 h-12 bg-orange-600 flex items-center justify-center"
-              >
-                <Building className="h-6 w-6 text-white" />
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                viewport={{ once: true }}
-                className="w-12 h-12 bg-orange-600 flex items-center justify-center"
-              >
-                <Bed className="h-6 w-6 text-white" />
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                viewport={{ once: true }}
-                className="w-12 h-12 bg-orange-600 flex items-center justify-center"
-              >
-                <Car className="h-6 w-6 text-white" />
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                viewport={{ once: true }}
-                className="w-12 h-12 bg-orange-600 flex items-center justify-center"
-              >
-                <Users className="h-6 w-6 text-white" />
-              </motion.div>
-            </div>
-
+          <div className="grid lg:grid-cols-12 gap-8 items-start">
             {/* Main content */}
-            <div className="lg:col-span-10 text-center lg:text-left">
+            <div className="lg:col-span-12 text-center lg:text-left">
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -128,11 +73,11 @@ export default function HomePage() {
                   HEART OF BOONE
                 </h2>
                 <p className="text-lg md:text-xl text-black mb-10 max-w-4xl mx-auto lg:mx-0 leading-relaxed">
-                  Located minutes from Appalachian State University, these brand-new apartments include spacious 1, 2
-                  and 3 bedroom layouts with modern finishes. Each unit features gourmet kitchens, stainless steel
-                  appliances, in-unit washer dryers, oversized windows, and 10–20 ft ceilings. Walkable to Walmart,
-                  Publix and two AppalCART bus stops, these apartments offer comfort and convenience for both students
-                  and professionals.
+                  Located minutes from Appalachian State University, these brand-new apartments include spacious 1-, 2-,
+                  and 3-bedroom layouts with modern finishes. Each apartment features gourmet kitchens, stainless steel
+                  appliances, in-unit washers and dryers, oversized windows, and 10–20 ft ceilings. Walkable to Publix,
+                  Walmart, and two AppalCART bus stops, The View offers convenient, high-quality living with easy access
+                  to campus and Boone.
                 </p>
                 <div className="flex justify-center lg:justify-start">
                   <SharedButton href="/floorplans" size="lg">
