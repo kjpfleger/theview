@@ -82,18 +82,18 @@ export default function AmenitiesPage() {
 
   const apartmentFeatures = [
     "Brand-new construction with premium finishes",
-    "Thermostat controlled air conditioning and heat in every room",
-    "In-unit washer and dryer in every apartment",
+    "Individually controlled HVAC in each room",
+    "In-unit washer and dryer",
     "Soaring 10 to 20-foot ceilings",
     "Oversized windows and abundant natural light",
     "Gourmet kitchens with stainless steel appliances",
     "Spa style bathrooms with tiled shower tubs",
     "Microwaves",
     "Dishwashers",
-    "Garbage disposals",
     "Refrigerator and freezer",
-    "Granite countertops",
+    "Quartz countertops",
     "Hardwood style floors",
+    "Double sink vanities in 3-bedroom apartments",
   ]
 
   const communityFeatures = [
@@ -149,12 +149,12 @@ export default function AmenitiesPage() {
       <section className="py-16 md:py-24 bg-gray-50">
         <div className="container mx-auto px-4">
           <motion.div
-            className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
+            className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <div>
+            <div className="lg:col-span-1">
               <Badge className="mb-4 bg-orange-600 hover:bg-orange-700 text-white px-4 py-2">
                 Our Apartment Features
               </Badge>
@@ -175,13 +175,13 @@ export default function AmenitiesPage() {
                 ))}
               </div>
             </div>
-            <div className="relative">
+            <div className="relative lg:col-span-2">
               <Image
-                src="/images/gallery-kitchen.jpeg"
-                alt="Modern gourmet kitchen with stainless steel appliances"
+                src="/images/rbs-the-20view-20apts-101-0007.jpg"
+                alt="Modern bathroom with double sink vanities and marble tile"
                 width={600}
-                height={500}
-                className="rounded-lg object-cover w-full h-[500px]"
+                height={600}
+                className="rounded-lg object-cover w-full h-[600px]"
               />
             </div>
           </motion.div>
