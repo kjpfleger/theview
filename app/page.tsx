@@ -1,25 +1,9 @@
 "use client"
 import "../styles/globals.css"
-import { Card, CardContent } from "@/components/ui/card"
 import { SharedButton } from "@/components/shared-button"
-import {
-  MapPin,
-  Car,
-  Waves,
-  Bed,
-  Bath,
-  Maximize,
-  Star,
-  Utensils,
-  Thermometer,
-  Sun,
-  Trash2,
-  Home,
-  Bus,
-} from "lucide-react"
+import { MapPin, Car, Waves, Bath, Maximize, Star, Utensils, Thermometer, Sun, Trash2, Home, Bus } from "lucide-react"
 import { motion } from "framer-motion"
 import Image from "next/image"
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 import Footer from "@/components/Footer"
 
 const fadeInUp = {
@@ -200,9 +184,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Floor Plans Preview - Scrolling Carousel */}
-      <section className="py-12 md:py-20 bg-white w-full overflow-x-hidden">
-        <div className="container mx-auto px-4 max-w-full">
+      {/* Floor Plans Preview - Three Column Grid */}
+      <section className="py-12 md:py-20 bg-white w-full">
+        <div className="container mx-auto px-4">
           <motion.div
             className="text-center mb-12 md:mb-16"
             initial={{ opacity: 0, y: 30 }}
@@ -216,7 +200,7 @@ export default function HomePage() {
               <span className="text-orange-600">FLOORPLANS</span>
             </h2>
             <p className="text-lg md:text-xl text-black max-w-3xl mx-auto">
-              Choose from thoughtfully designed studio, 1, 2 & 3 bedroom apartments
+              Choose from thoughtfully designed studio, 2 &amp; 3 bedroom apartments
             </p>
           </motion.div>
 
@@ -225,198 +209,89 @@ export default function HomePage() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="relative"
+            className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12"
           >
-            <Carousel
-              opts={{
-                align: "start",
-                loop: true,
-              }}
-              className="w-full"
-            >
-              <CarouselContent className="-ml-2 md:-ml-4">
-                {/* Unit 101 */}
-                <CarouselItem className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
-                  <Card className="overflow-hidden hover:shadow-lg transition-shadow h-full border border-gray-200 bg-white rounded-lg shadow-sm">
-                    <div className="aspect-square relative overflow-hidden">
-                      <img
-                        src="/images/floorplans/unit-101.jpeg"
-                        alt="Unit 101 Floor Plan"
-                        className="w-full h-full object-cover p-6"
-                      />
-                    </div>
-                    <CardContent className="p-6 flex flex-col h-full">
-                      <h3 className="text-xl font-bold mb-4 text-center text-black">Studio</h3>
-                      <div className="grid grid-cols-3 gap-4 text-center text-black mb-6">
-                        <div className="flex flex-col items-center space-y-1">
-                          <Bed className="h-4 w-4 text-gray-600" />
-                          <span className="text-sm text-gray-600">Studio</span>
-                        </div>
-                        <div className="flex flex-col items-center space-y-1">
-                          <Bath className="h-4 w-4 text-gray-600" />
-                          <span className="text-sm text-gray-600">1 Bath</span>
-                        </div>
-                        <div className="flex flex-col items-center space-y-1">
-                          <Maximize className="h-4 w-4 text-gray-600" />
-                          <span className="text-sm text-gray-600">375 sq ft</span>
-                        </div>
-                      </div>
-                      <SharedButton href="/floorplans/unit-101" className="w-full mt-auto">
-                        View Details
-                      </SharedButton>
-                    </CardContent>
-                  </Card>
-                </CarouselItem>
+            {/* Studio */}
+            <div className="group relative overflow-hidden rounded-lg">
+              <div className="relative aspect-[4/3] overflow-hidden">
+                <Image src="/images/floorplans-20-20studio.jpg" alt="Studio apartment" fill className="object-cover" />
+                <div className="absolute top-4 left-4 w-16 h-16 bg-orange-600 rounded-full flex items-center justify-center">
+                  <span className="text-white text-2xl font-bold">1</span>
+                </div>
+              </div>
+              <div className="py-8 text-center">
+                <h3 className="text-2xl md:text-3xl font-bold mb-2 tracking-wider">STUDIO</h3>
+                <p className="text-gray-600 mb-6">Roomy open layout to live and work</p>
+                <a
+                  href="/floorplans"
+                  className="inline-flex items-center justify-center gap-2 text-orange-600 font-bold text-lg uppercase tracking-wide hover:underline transition-all"
+                >
+                  VIEW UNITS →
+                </a>
+              </div>
+            </div>
 
-                {/* Unit 102 */}
-                <CarouselItem className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
-                  <Card className="overflow-hidden hover:shadow-lg transition-shadow h-full border border-gray-200 bg-white rounded-lg shadow-sm">
-                    <div className="aspect-square relative overflow-hidden">
-                      <img
-                        src="/images/floorplans/unit-102.jpeg"
-                        alt="Unit 102 Floor Plan"
-                        className="w-full h-full object-cover p-6"
-                      />
-                    </div>
-                    <CardContent className="p-6 flex flex-col h-full">
-                      <h3 className="text-xl font-bold mb-4 text-center text-black">2 Bedroom</h3>
-                      <div className="grid grid-cols-3 gap-4 text-center text-black mb-6">
-                        <div className="flex flex-col items-center space-y-1">
-                          <Bed className="h-4 w-4 text-gray-600" />
-                          <span className="text-sm text-gray-600">2 Bed</span>
-                        </div>
-                        <div className="flex flex-col items-center space-y-1">
-                          <Bath className="h-4 w-4 text-gray-600" />
-                          <span className="text-sm text-gray-600">2 Bath</span>
-                        </div>
-                        <div className="flex flex-col items-center space-y-1">
-                          <Maximize className="h-4 w-4 text-gray-600" />
-                          <span className="text-sm text-gray-600">600 sq ft</span>
-                        </div>
-                      </div>
-                      <SharedButton href="/floorplans/unit-102" className="w-full mt-auto">
-                        View Details
-                      </SharedButton>
-                    </CardContent>
-                  </Card>
-                </CarouselItem>
+            {/* 2 Bedroom */}
+            <div className="group relative overflow-hidden rounded-lg">
+              <div className="relative aspect-[4/3] overflow-hidden">
+                <Image
+                  src="/images/floorplans-20-202-20bedroom.jpg"
+                  alt="2 bedroom apartment"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute top-4 left-4 w-16 h-16 bg-orange-600 rounded-full flex items-center justify-center">
+                  <span className="text-white text-2xl font-bold">2</span>
+                </div>
+              </div>
+              <div className="py-8 text-center">
+                <h3 className="text-2xl md:text-3xl font-bold mb-2 tracking-wider">2 BEDROOM</h3>
+                <p className="text-gray-600 mb-6">Comfortable living for two</p>
+                <a
+                  href="/floorplans"
+                  className="inline-flex items-center justify-center gap-2 text-orange-600 font-bold text-lg uppercase tracking-wide hover:underline transition-all"
+                >
+                  VIEW UNITS →
+                </a>
+              </div>
+            </div>
 
-                {/* Unit 103 */}
-                <CarouselItem className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
-                  <Card className="overflow-hidden hover:shadow-lg transition-shadow h-full border border-gray-200 bg-white rounded-lg shadow-sm">
-                    <div className="aspect-square relative overflow-hidden">
-                      <img
-                        src="/images/floorplans/unit-103.jpeg"
-                        alt="Unit 103 Floor Plan"
-                        className="w-full h-full object-cover p-6"
-                      />
-                    </div>
-                    <CardContent className="p-6 flex flex-col h-full">
-                      <h3 className="text-xl font-bold mb-4 text-center text-black">Studio + Patio</h3>
-                      <div className="grid grid-cols-3 gap-4 text-center text-black mb-6">
-                        <div className="flex flex-col items-center space-y-1">
-                          <Bed className="h-4 w-4 text-gray-600" />
-                          <span className="text-sm text-gray-600">Studio</span>
-                        </div>
-                        <div className="flex flex-col items-center space-y-1">
-                          <Bath className="h-4 w-4 text-gray-600" />
-                          <span className="text-sm text-gray-600">1 Bath</span>
-                        </div>
-                        <div className="flex flex-col items-center space-y-1">
-                          <Maximize className="h-4 w-4 text-gray-600" />
-                          <span className="text-sm text-gray-600">340 sq ft + Patio</span>
-                        </div>
-                      </div>
-                      <SharedButton href="/floorplans/unit-103" className="w-full mt-auto">
-                        View Details
-                      </SharedButton>
-                    </CardContent>
-                  </Card>
-                </CarouselItem>
-
-                {/* Unit 104 */}
-                <CarouselItem className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
-                  <Card className="overflow-hidden hover:shadow-lg transition-shadow border-2 border-orange-200 h-full bg-white rounded-lg shadow-sm">
-                    <div className="aspect-square relative overflow-hidden">
-                      <img
-                        src="/images/floorplans/unit-104.jpeg"
-                        alt="Unit 104 Floor Plan"
-                        className="w-full h-full object-cover p-6"
-                      />
-                    </div>
-                    <CardContent className="p-6 flex flex-col h-full">
-                      <h3 className="text-xl font-bold mb-4 text-center text-black">3 Bedroom</h3>
-                      <div className="grid grid-cols-3 gap-4 text-center text-black mb-6">
-                        <div className="flex flex-col items-center space-y-1">
-                          <Bed className="h-4 w-4 text-gray-600" />
-                          <span className="text-sm text-gray-600">3 Bed</span>
-                        </div>
-                        <div className="flex flex-col items-center space-y-1">
-                          <Bath className="h-4 w-4 text-gray-600" />
-                          <span className="text-sm text-gray-600">2 Bath</span>
-                        </div>
-                        <div className="flex flex-col items-center space-y-1">
-                          <Maximize className="h-4 w-4 text-gray-600" />
-                          <span className="text-sm text-gray-600">700 sq ft</span>
-                        </div>
-                      </div>
-                      <SharedButton href="/floorplans/unit-104" className="w-full mt-auto">
-                        View Details
-                      </SharedButton>
-                    </CardContent>
-                  </Card>
-                </CarouselItem>
-
-                {/* Unit 201 */}
-                <CarouselItem className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
-                  <Card className="overflow-hidden hover:shadow-lg transition-shadow border-2 border-orange-200 h-full bg-white rounded-lg shadow-sm">
-                    <div className="aspect-square relative overflow-hidden">
-                      <img
-                        src="/images/floorplans/unit-201.jpeg"
-                        alt="Unit 201 Floor Plan"
-                        className="w-full h-full object-cover p-6"
-                      />
-                    </div>
-                    <CardContent className="p-6 flex flex-col h-full">
-                      <h3 className="text-xl font-bold mb-4 text-center text-black">Penthouse</h3>
-                      <div className="grid grid-cols-3 gap-4 text-center text-black mb-6">
-                        <div className="flex flex-col items-center space-y-1">
-                          <Bed className="h-4 w-4 text-gray-600" />
-                          <span className="text-sm text-gray-600">3 Bed</span>
-                        </div>
-                        <div className="flex flex-col items-center space-y-1">
-                          <Bath className="h-4 w-4 text-gray-600" />
-                          <span className="text-sm text-gray-600">2 Bath</span>
-                        </div>
-                        <div className="flex flex-col items-center space-y-1">
-                          <Maximize className="h-4 w-4 text-gray-600" />
-                          <span className="text-sm text-gray-600">1200 sq ft</span>
-                        </div>
-                      </div>
-                      <SharedButton href="/floorplans/unit-201" className="w-full mt-auto">
-                        View Details
-                      </SharedButton>
-                    </CardContent>
-                  </Card>
-                </CarouselItem>
-              </CarouselContent>
-              <CarouselPrevious className="left-4 bg-orange-600 hover:bg-orange-700 text-white border-orange-600" />
-              <CarouselNext className="right-4 bg-orange-600 hover:bg-orange-700 text-white border-orange-600" />
-            </Carousel>
+            {/* 3 Bedroom */}
+            <div className="group relative overflow-hidden rounded-lg">
+              <div className="relative aspect-[4/3] overflow-hidden">
+                <Image
+                  src="/images/floorplans-20-203-20bedroom.jpg"
+                  alt="3 bedroom apartment"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute top-4 left-4 w-16 h-16 bg-orange-600 rounded-full flex items-center justify-center">
+                  <span className="text-white text-2xl font-bold">3</span>
+                </div>
+              </div>
+              <div className="py-8 text-center">
+                <h3 className="text-2xl md:text-3xl font-bold mb-2 tracking-wider">3 BEDROOM</h3>
+                <p className="text-gray-600 mb-6">Room to spread out with friends</p>
+                <a
+                  href="/floorplans"
+                  className="inline-flex items-center justify-center gap-2 text-orange-600 font-bold text-lg uppercase tracking-wide hover:underline transition-all"
+                >
+                  VIEW UNITS →
+                </a>
+              </div>
+            </div>
           </motion.div>
 
           <motion.div
-            className="text-center mt-12"
+            className="text-center"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            <div className="flex justify-center lg:justify-start">
-              <SharedButton href="/floorplans" size="lg">
-                View All Floor Plans
-              </SharedButton>
-            </div>
+            <SharedButton href="/floorplans" size="lg">
+              View All Floor Plans
+            </SharedButton>
           </motion.div>
         </div>
       </section>
