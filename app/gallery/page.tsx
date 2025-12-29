@@ -1,11 +1,9 @@
 "use client"
 
 import { useEffect } from "react"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
-import { Camera, Clock, ArrowRight } from "lucide-react"
-import Link from "next/link"
+import { SharedButton } from "@/components/shared-button"
+import { Camera, Clock } from "lucide-react"
 import { motion } from "framer-motion"
 import Footer from "@/components/Footer"
 
@@ -41,19 +39,13 @@ export default function GalleryPage() {
               </p>
 
               <div className="space-y-4 md:space-y-0 md:space-x-4 md:flex md:justify-center">
-                <Button className="w-full md:w-auto bg-orange-600 hover:bg-orange-700 text-white px-8 py-3" asChild>
-                  <Link href="/floorplans">
-                    View Floor Plans
-                  </Link>
-                </Button>
+                <SharedButton href="/floorplans" size="lg" className="w-full md:w-auto">
+                  View Floor Plans
+                </SharedButton>
 
-                <Button
-                  variant="outline"
-                  className="w-full md:w-auto border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white px-8 py-3 bg-transparent"
-                  asChild
-                >
-                  <Link href="/contact">Schedule a Visit</Link>
-                </Button>
+                <SharedButton href="/contact" size="lg" variant="secondary" className="w-full md:w-auto">
+                  Schedule a Visit
+                </SharedButton>
               </div>
             </Card>
           </motion.div>

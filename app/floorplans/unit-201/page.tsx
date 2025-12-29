@@ -1,11 +1,10 @@
 "use client"
 
 import { useEffect } from "react"
-import { Button } from "@/components/ui/button"
+import { SharedButton } from "@/components/shared-button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Bed, Bath, Maximize, Check } from "lucide-react"
-import Link from "next/link"
 import { motion } from "framer-motion"
 
 const fadeInUp = {
@@ -166,14 +165,9 @@ export default function Unit201Page() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          <Button
-            size="lg"
-            variant="outline"
-            className="border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white bg-transparent"
-            asChild
-          >
-            <Link href="/floorplans">← Back to Floor Plans</Link>
-          </Button>
+          <SharedButton href="/floorplans" size="lg" variant="outline">
+            ← Back to Floor Plans
+          </SharedButton>
         </motion.div>
       </div>
     </div>

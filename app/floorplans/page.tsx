@@ -1,11 +1,10 @@
 "use client"
 
 import { useEffect } from "react"
-import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { SharedButton } from "@/components/shared-button"
 import { Bed, Bath, Maximize, ArrowRight, Check, Star, DollarSign } from "lucide-react"
-import Link from "next/link"
 import { motion } from "framer-motion"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 import Footer from "@/components/Footer"
@@ -214,16 +213,10 @@ export default function FloorPlansPage() {
                           </div>
 
                           {/* CTA Button - Navigate to Unit Subpage */}
-                          <Button
-                            className="w-full sm:w-auto bg-orange-600 hover:bg-orange-700 text-white font-medium py-2 px-4 rounded-md transition-colors duration-200"
-                            size="lg"
-                            asChild
-                          >
-                            <Link href={`/floorplans/unit-${unit.id}`} className="flex items-center justify-center">
-                              View Details
-                              <ArrowRight className="ml-2 h-4 w-4" />
-                            </Link>
-                          </Button>
+                          <SharedButton href={`/floorplans/unit-${unit.id}`} className="w-full sm:w-auto">
+                            View Details
+                            <ArrowRight className="ml-2 h-4 w-4" />
+                          </SharedButton>
                         </div>
                       </Card>
                     </CarouselItem>
@@ -244,13 +237,7 @@ export default function FloorPlansPage() {
               <p className="text-gray-600 mb-4">
                 All units include in-unit laundry, stainless steel appliances, and on-site parking
               </p>
-              <Button
-                variant="outline"
-                className="border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white bg-transparent"
-                asChild
-              >
-                <Link href="/contact">Schedule a Tour</Link>
-              </Button>
+              <SharedButton href="/contact">Schedule a Tour</SharedButton>
             </motion.div>
           </div>
         </div>

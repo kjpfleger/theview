@@ -1,7 +1,21 @@
 import type React from "react"
 import type { Metadata } from "next"
+import { Bebas_Neue, Inter } from "next/font/google"
+import "./globals.css"
 import ClientLayout from "./clientLayout"
-import "../styles/globals.css";
+
+const bebasNeue = Bebas_Neue({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-bebas-neue",
+  display: "swap",
+})
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+})
 
 export const metadata: Metadata = {
   title: "The View Apartments - Premium Student Housing in Boone, NC",
@@ -70,5 +84,11 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  return <ClientLayout>{children}</ClientLayout>
+  return (
+    <html lang="en" className={`${bebasNeue.variable} ${inter.variable}`}>
+      <body className={`${inter.className} font-sans`}>
+        <ClientLayout>{children}</ClientLayout>
+      </body>
+    </html>
+  )
 }

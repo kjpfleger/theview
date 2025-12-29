@@ -1,7 +1,7 @@
 "use client"
-import "../styles/globals.css";
-import { Button } from "@/components/ui/button"
+import "../styles/globals.css"
 import { Card, CardContent } from "@/components/ui/card"
+import { SharedButton } from "@/components/shared-button"
 import {
   MapPin,
   Car,
@@ -18,7 +18,6 @@ import {
   Trash2,
   Home,
 } from "lucide-react"
-import Link from "next/link"
 import { motion } from "framer-motion"
 import Image from "next/image"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
@@ -60,9 +59,9 @@ export default function HomePage() {
               Newly built apartments near App State with modern amenities, mountain views, and unbeatable convenience.
             </p>
             <div className="flex justify-center">
-              <Button size="lg" className="bg-white text-black hover:bg-gray-100" asChild>
-                <Link href="/floorplans">View Floor Plans</Link>
-              </Button>
+              <SharedButton href="/floorplans" size="lg">
+                View Floor Plans
+              </SharedButton>
             </div>
           </motion.div>
         </div>
@@ -136,13 +135,9 @@ export default function HomePage() {
                   and professionals.
                 </p>
                 <div className="flex justify-center lg:justify-start">
-                  <Button
-                    size="lg"
-                    className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-3 text-base font-semibold tracking-wide"
-                    asChild
-                  >
-                    <Link href="/floorplans">EXPLORE FLOORPLANS</Link>
-                  </Button>
+                  <SharedButton href="/floorplans" size="lg">
+                    EXPLORE FLOORPLANS
+                  </SharedButton>
                 </div>
               </motion.div>
             </div>
@@ -231,14 +226,9 @@ export default function HomePage() {
               </div>
               {/* CTA Button */}
               <div className="flex justify-center lg:justify-start mt-8">
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white px-8 py-3 text-base font-semibold tracking-wide bg-transparent"
-                  asChild
-                >
-                  <Link href="/amenities">EXPLORE AMENITIES</Link>
-                </Button>
+                <SharedButton href="/amenities" size="lg">
+                  EXPLORE AMENITIES
+                </SharedButton>
               </div>
             </motion.div>
           </div>
@@ -306,12 +296,9 @@ export default function HomePage() {
                           <span className="text-sm text-gray-600">375 sq ft</span>
                         </div>
                       </div>
-                      <Button
-                        className="w-full mt-auto bg-orange-600 hover:bg-orange-700 text-white font-medium py-2 px-4 rounded-md transition-colors duration-200"
-                        asChild
-                      >
-                        <Link href="/floorplans/unit-101">View Details</Link>
-                      </Button>
+                      <SharedButton href="/floorplans/unit-101" className="w-full mt-auto">
+                        View Details
+                      </SharedButton>
                     </CardContent>
                   </Card>
                 </CarouselItem>
@@ -342,12 +329,9 @@ export default function HomePage() {
                           <span className="text-sm text-gray-600">600 sq ft</span>
                         </div>
                       </div>
-                      <Button
-                        className="w-full mt-auto bg-orange-600 hover:bg-orange-700 text-white font-medium py-2 px-4 rounded-md transition-colors duration-200"
-                        asChild
-                      >
-                        <Link href="/floorplans/unit-102">View Details</Link>
-                      </Button>
+                      <SharedButton href="/floorplans/unit-102" className="w-full mt-auto">
+                        View Details
+                      </SharedButton>
                     </CardContent>
                   </Card>
                 </CarouselItem>
@@ -378,19 +362,16 @@ export default function HomePage() {
                           <span className="text-sm text-gray-600">340 sq ft + Patio</span>
                         </div>
                       </div>
-                      <Button
-                        className="w-full mt-auto bg-orange-600 hover:bg-orange-700 text-white font-medium py-2 px-4 rounded-md transition-colors duration-200"
-                        asChild
-                      >
-                        <Link href="/floorplans/unit-103">View Details</Link>
-                      </Button>
+                      <SharedButton href="/floorplans/unit-103" className="w-full mt-auto">
+                        View Details
+                      </SharedButton>
                     </CardContent>
                   </Card>
                 </CarouselItem>
 
                 {/* Unit 104 */}
                 <CarouselItem className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
-                  <Card className="overflow-hidden hover:shadow-lg transition-shadow h-full border border-gray-200 bg-white rounded-lg shadow-sm">
+                  <Card className="overflow-hidden hover:shadow-lg transition-shadow border-2 border-orange-200 h-full bg-white rounded-lg shadow-sm">
                     <div className="aspect-square relative overflow-hidden">
                       <img
                         src="/images/floorplans/unit-104.jpeg"
@@ -414,12 +395,9 @@ export default function HomePage() {
                           <span className="text-sm text-gray-600">700 sq ft</span>
                         </div>
                       </div>
-                      <Button
-                        className="w-full mt-auto bg-orange-600 hover:bg-orange-700 text-white font-medium py-2 px-4 rounded-md transition-colors duration-200"
-                        asChild
-                      >
-                        <Link href="/floorplans/unit-104">View Details</Link>
-                      </Button>
+                      <SharedButton href="/floorplans/unit-104" className="w-full mt-auto">
+                        View Details
+                      </SharedButton>
                     </CardContent>
                   </Card>
                 </CarouselItem>
@@ -450,12 +428,9 @@ export default function HomePage() {
                           <span className="text-sm text-gray-600">1200 sq ft</span>
                         </div>
                       </div>
-                      <Button
-                        className="w-full mt-auto bg-orange-600 hover:bg-orange-700 text-white font-medium py-2 px-4 rounded-md transition-colors duration-200"
-                        asChild
-                      >
-                        <Link href="/floorplans/unit-201">View Details</Link>
-                      </Button>
+                      <SharedButton href="/floorplans/unit-201" className="w-full mt-auto">
+                        View Details
+                      </SharedButton>
                     </CardContent>
                   </Card>
                 </CarouselItem>
@@ -472,14 +447,11 @@ export default function HomePage() {
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white bg-transparent"
-              asChild
-            >
-              <Link href="/floorplans">View All Floor Plans</Link>
-            </Button>
+            <div className="flex justify-center lg:justify-start">
+              <SharedButton href="/floorplans" size="lg">
+                View All Floor Plans
+              </SharedButton>
+            </div>
           </motion.div>
         </div>
       </section>
