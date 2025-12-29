@@ -332,7 +332,7 @@ export default function HomePage() {
                   </div>
                   <div>
                     <h3 className="font-bold text-lg mb-1">Seconds walk to AppalCART</h3>
-                    <p className="text-black">Steps from two AppaLCART bus stops</p>
+                    <p className="text-black">Steps from two AppalCART bus stops</p>
                   </div>
                 </div>
 
