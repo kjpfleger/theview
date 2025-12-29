@@ -98,15 +98,15 @@ export default function AmenitiesPage() {
 
   const communityFeatures = [
     "On-site parking included",
-    "Safe, residential neighborhood",
-    "Adjacent to 2 major AppalCART bus stops",
-    "Covered carport & long term bike storage",
-    "3 minute drive or 5-10 minute bike ride to Appalachian State University",
-    "Walkable to Walmart, Food Lion & Publix",
+    "Adjacent to two AppalCART bus stops",
+    "3-minute drive or short bike ride to App State University",
+    "Walkable to Walmart, Food Lion, and Publix",
     "Steps from coffee shops, restaurants, and local stores",
+    "Covered carport and long-term bike storage",
     "Outdoor grill and picnic area",
-    "Scenic river view",
+    "Scenic river views",
     "Quick access to downtown Boone",
+    "Safe, residential area",
   ]
 
   return (
@@ -192,18 +192,18 @@ export default function AmenitiesPage() {
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4">
           <motion.div
-            className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
+            className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-12"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
             <div className="relative">
               <Image
-                src="/images/aerial-view.jpeg"
-                alt="Aerial view of The View apartments location in Boone"
-                width={600}
-                height={500}
-                className="rounded-lg object-cover w-full h-[500px]"
+                src="/images/community-20features.png"
+                alt="Aerial view showing The View location near Appalachian State and AppalCART stops"
+                width={800}
+                height={600}
+                className="rounded-lg object-contain w-full"
               />
             </div>
             <div>
@@ -214,8 +214,9 @@ export default function AmenitiesPage() {
                 FEATURES
               </h2>
               <p className="text-lg md:text-xl text-gray-600 mb-8">
-                Walkable to shopping, dining, and public transportation, The View offers a prime location minutes from
-                App State and everything Boone has to offer!
+                {
+                  "A few seconds’ walk to two AppalCART bus stops, The View offers easy access to App State and is walkable to shopping, dining and everyday essentials!"
+                }
               </p>
               <div className="space-y-4">
                 {communityFeatures.map((feature, index) => (
@@ -226,6 +227,20 @@ export default function AmenitiesPage() {
                 ))}
               </div>
             </div>
+          </motion.div>
+          <motion.div
+            className="w-full"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+          >
+            <Image
+              src="/images/community-20features-202.jpg"
+              alt="Aerial view showing The View location near Publix and Walmart"
+              width={1400}
+              height={700}
+              className="rounded-lg object-contain w-full h-auto"
+            />
           </motion.div>
         </div>
       </section>
