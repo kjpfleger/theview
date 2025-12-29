@@ -2,11 +2,9 @@
 
 import { useEffect } from "react"
 import { Card } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
 import { SharedButton } from "@/components/shared-button"
-import { Bed, Bath, Maximize, ArrowRight, Check, Star, DollarSign } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 import { motion } from "framer-motion"
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 import Footer from "@/components/Footer"
 import Image from "next/image"
 
@@ -25,12 +23,12 @@ export default function FloorPlansPage() {
     {
       id: "101",
       name: "Unit 101",
-      type: "Studio",
+      type: "Corner Studio, One Bath",
       bedrooms: "Studio",
       bathrooms: 1,
       sqft: 375,
       price: 1450,
-      image: "/images/floorplans/unit-101.jpeg",
+      image: "/images/unit-20101.jpg",
       features: ["In-unit laundry", "Stainless appliances", "Hardwood floors", "High ceilings"],
       description:
         "Perfect for individuals seeking modern living with all the essentials in a thoughtfully designed studio apartment.",
@@ -40,12 +38,12 @@ export default function FloorPlansPage() {
     {
       id: "102",
       name: "Unit 102",
-      type: "2 Bedroom",
+      type: "Corner 2 Bedrooms, 2 Baths",
       bedrooms: 2,
       bathrooms: 2,
       sqft: 600,
-      price: 2200,
-      image: "/images/floorplans/unit-102.jpeg",
+      price: "1,100/bed",
+      image: "/images/unit-102.jpeg",
       features: ["Private bathrooms", "Open living area", "Full kitchen", "Ample storage"],
       description:
         "Ideal for roommates with separate bedrooms and bathrooms, offering privacy and comfort with shared common areas.",
@@ -55,12 +53,13 @@ export default function FloorPlansPage() {
     {
       id: "103",
       name: "Unit 103",
-      type: "Studio + Patio",
+      type: "Corner Studio, One Bath",
       bedrooms: "Studio",
       bathrooms: 1,
       sqft: "340 + Patio",
       price: 1450,
-      image: "/images/floorplans/unit-103.jpeg",
+      available: "Aug 2026",
+      image: "/images/unit-103.jpeg",
       features: ["Private patio", "Premium location", "High ceilings", "Modern finishes"],
       description:
         "Studio apartment with private patio for outdoor living. Perfect for those who enjoy indoor-outdoor lifestyle.",
@@ -70,12 +69,13 @@ export default function FloorPlansPage() {
     {
       id: "104",
       name: "Unit 104",
-      type: "3 Bedroom",
+      type: "Corner 3 Bedrooms, 2 Baths",
       bedrooms: 3,
       bathrooms: 2,
       sqft: 700,
-      price: 2955,
-      image: "/images/floorplans/unit-104.jpeg",
+      price: "1,050/bed",
+      available: "Aug 2026",
+      image: "/images/unit-104.jpeg",
       features: ["Spacious bedrooms", "Large living area", "Full-size kitchen", "Multiple closets"],
       description:
         "Perfect for groups of friends or families. This spacious 3-bedroom unit offers plenty of room for everyone.",
@@ -85,12 +85,12 @@ export default function FloorPlansPage() {
     {
       id: "201",
       name: "Unit 201",
-      type: "Penthouse",
+      type: "3 Bedrooms, 2 Baths, Penthouse",
       bedrooms: 3,
       bathrooms: 2,
       sqft: 1200,
-      price: 3300,
-      image: "/images/floorplans/unit-201.jpeg",
+      price: "1,100/bed",
+      image: "/images/unit-201.jpg",
       features: ["Premium finishes", "Luxury appliances", "Exclusive access", "Spacious layout"],
       description:
         "Experience luxury living at its finest in our exclusive penthouse unit with premium finishes and stunning views.",
@@ -126,121 +126,81 @@ export default function FloorPlansPage() {
 
         {/* Floor Plans Section */}
         <div className="container mx-auto px-4 py-8">
-          {/* Scrollable Floor Plans */}
+          {/* Grid Layout - 1 column mobile, 2 columns tablet, 3 columns desktop */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative"
           >
-            <Carousel
-              opts={{
-                align: "start",
-                loop: false,
-              }}
-              className="w-full"
-            >
-              <CarouselContent className="-ml-2 md:-ml-4">
-                {units.map((unit) => (
-                  <CarouselItem key={unit.id} className="pl-2 md:pl-4 basis-full sm:basis-1/2 lg:basis-1/3">
-                    <Card
-                      className={`overflow-hidden hover:shadow-lg transition-shadow h-full border border-gray-200 bg-white rounded-lg shadow-sm ${unit.isPenthouse ? "border-2 border-orange-200 bg-gradient-to-br from-orange-50 to-orange-100" : ""}`}
-                    >
-                      {/* Image Section */}
-                      <div className="relative">
-                        <div className="aspect-square p-4">
-                          <img
-                            src={unit.image || "/placeholder.svg"}
-                            alt={`${unit.name} Floor Plan`}
-                            className="w-full h-full object-contain rounded-lg"
-                          />
-                        </div>
-                        <Badge
-                          className={`absolute top-6 left-6 text-white text-xs ${unit.badgeColor} ${unit.isPenthouse ? "flex items-center" : ""}`}
-                        >
-                          {unit.isPenthouse && <Star className="mr-1 h-3 w-3" />}
-                          {unit.badge}
-                        </Badge>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+              {units.map((unit) => (
+                <Card
+                  key={unit.id}
+                  className="overflow-hidden hover:shadow-xl transition-shadow border border-gray-200 bg-white rounded-none"
+                >
+                  {/* Image Section */}
+                  <div className="relative aspect-[4/3] overflow-hidden">
+                    <img
+                      src={unit.image || "/placeholder.svg"}
+                      alt={`${unit.name} Interior`}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+
+                  {/* Content Section */}
+                  <div className="p-6">
+                    {/* Unit Number */}
+                    <h3 className="text-xl font-semibold text-black mb-2">{unit.name}</h3>
+
+                    {/* Unit Type */}
+                    <p className="text-gray-600 text-base mb-6">{unit.type}</p>
+
+                    {/* Price and Availability Row */}
+                    <div className="flex items-start justify-between mb-4 pb-4 border-b border-gray-200">
+                      <div>
+                        <p className="text-sm text-gray-500 mb-1 font-medium">Price</p>
+                        <p className="text-xl font-bold text-black">
+                          ${typeof unit.price === "number" ? unit.price.toLocaleString() : unit.price}
+                        </p>
                       </div>
-
-                      {/* Content Section */}
-                      <div className="p-4 flex flex-col h-full">
-                        {/* Header with Price */}
-                        <div className="flex items-center justify-between mb-3">
-                          <div>
-                            <h3 className="text-lg font-bold text-black">{unit.name}</h3>
-                            <Badge className={`text-xs ${unit.badgeColor} text-white`}>{unit.type}</Badge>
-                          </div>
-                          <div className="text-right">
-                            <div className="flex items-center">
-                              <DollarSign className="h-4 w-4 text-orange-600 mr-1" />
-                              <span
-                                className={`text-lg font-bold ${unit.isPenthouse ? "bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent" : "text-orange-600"}`}
-                              >
-                                {unit.price.toLocaleString()}
-                              </span>
-                            </div>
-                            <p className="text-xs text-gray-600">per month</p>
-                          </div>
-                        </div>
-
-                        {/* Unit Specs */}
-                        <div className="grid grid-cols-3 gap-2 text-center text-gray-600 mb-3">
-                          <div className="flex flex-col items-center space-y-1">
-                            <Bed className="h-3 w-3" />
-                            <span className="text-xs font-medium">
-                              {unit.bedrooms} {typeof unit.bedrooms === "number" ? "Bed" : ""}
-                            </span>
-                          </div>
-                          <div className="flex flex-col items-center space-y-1">
-                            <Bath className="h-3 w-3" />
-                            <span className="text-xs font-medium">{unit.bathrooms} Bath</span>
-                          </div>
-                          <div className="flex flex-col items-center space-y-1">
-                            <Maximize className="h-3 w-3" />
-                            <span className="text-xs font-medium">{unit.sqft} sq ft</span>
-                          </div>
-                        </div>
-
-                        {/* Description */}
-                        <p className="text-sm text-gray-600 mb-3 line-clamp-2 flex-grow">{unit.description}</p>
-
-                        {/* Features */}
-                        <div className="grid grid-cols-2 gap-1 mb-4">
-                          {unit.features.slice(0, 4).map((feature, index) => (
-                            <div key={index} className="flex items-center space-x-1">
-                              <Check className="h-2 w-2 text-orange-600 flex-shrink-0" />
-                              <span className="text-xs text-gray-700 truncate">{feature}</span>
-                            </div>
-                          ))}
-                        </div>
-
-                        {/* CTA Button - Navigate to Unit Subpage */}
-                        <SharedButton href={`/floorplans/unit-${unit.id}`} className="w-full sm:w-auto">
-                          View Details
-                          <ArrowRight className="ml-2 h-4 w-4" />
-                        </SharedButton>
+                      <div className="text-right">
+                        <p className="text-sm text-gray-500 mb-1 font-medium">Available</p>
+                        <p className="text-base font-medium text-black">{unit.available || "Contact Us"}</p>
                       </div>
-                    </Card>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              <CarouselPrevious className="left-4 bg-orange-600 hover:bg-orange-700 text-white border-orange-600" />
-              <CarouselNext className="right-4 bg-orange-600 hover:bg-orange-700 text-white border-orange-600" />
-            </Carousel>
-          </motion.div>
+                    </div>
 
-          {/* Additional Info */}
-          <motion.div
-            className="text-center mt-8"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            <p className="text-gray-600 mb-4">
-              All units include in-unit laundry, stainless steel appliances, and on-site parking
-            </p>
-            <SharedButton href="/contact">Schedule a Tour</SharedButton>
+                    {/* View Unit Link */}
+                    <div className="flex justify-end">
+                      <a
+                        href={`/floorplans/unit-${unit.id}`}
+                        className="inline-flex items-center text-sm font-medium text-gray-600 hover:text-orange-600 transition-colors group uppercase"
+                      >
+                        VIEW UNIT
+                        <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                      </a>
+                    </div>
+                  </div>
+                </Card>
+              ))}
+
+              <div className="hidden lg:flex items-center justify-center">
+                <SharedButton
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSekcj-ZKxZZ8ExLAw3by93i0y81oIp2p3lRoThEAJtWIdBvEw/viewform"
+                  className="w-full h-auto py-3"
+                >
+                  APPLY NOW
+                </SharedButton>
+              </div>
+            </div>
+
+            <div className="lg:hidden text-center mt-8">
+              <SharedButton
+                href="https://docs.google.com/forms/d/e/1FAIpQLSekcj-ZKxZZ8ExLAw3by93i0y81oIp2p3lRoThEAJtWIdBvEw/viewform"
+                className="w-full md:w-auto py-3 px-8"
+              >
+                APPLY NOW
+              </SharedButton>
+            </div>
           </motion.div>
         </div>
       </div>
