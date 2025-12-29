@@ -27,7 +27,7 @@ export function SharedButton({
 }: SharedButtonProps) {
   // Base styles for all buttons
   const baseStyles =
-    "inline-flex items-center justify-center font-medium rounded-md transition-all duration-200 font-sans"
+    "inline-flex items-center justify-center font-medium rounded-md transition-all duration-200 font-sans uppercase"
 
   // Size styles
   const sizeStyles = {

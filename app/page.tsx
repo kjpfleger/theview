@@ -45,7 +45,7 @@ export default function HomePage() {
             </p>
             <div className="flex justify-center">
               <SharedButton href="/floorplans" size="lg">
-                View Floor Plans
+                VIEW FLOOR PLANS
               </SharedButton>
             </div>
           </motion.div>
@@ -57,7 +57,7 @@ export default function HomePage() {
         <div className="w-full max-w-none px-8">
           <div className="grid lg:grid-cols-12 gap-8 items-start">
             {/* Main content */}
-            <div className="lg:col-span-12 text-center lg:text-left">
+            <div className="lg:col-span-12 text-center">
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -72,14 +72,14 @@ export default function HomePage() {
                   <br />
                   HEART OF BOONE
                 </h2>
-                <p className="text-lg md:text-xl text-black mb-10 max-w-4xl mx-auto lg:mx-0 leading-relaxed">
+                <p className="text-lg md:text-xl text-black mb-10 max-w-4xl mx-auto leading-relaxed">
                   Located minutes from Appalachian State University, these brand-new apartments include spacious 1-, 2-,
                   and 3-bedroom layouts with modern finishes. Each apartment features gourmet kitchens, stainless steel
                   appliances, in-unit washers and dryers, oversized windows, and 10–20 ft ceilings. Walkable to Publix,
                   Walmart, and two AppalCART bus stops, The View offers convenient, high-quality living with easy access
                   to campus and Boone.
                 </p>
-                <div className="flex justify-center lg:justify-start">
+                <div className="flex justify-center">
                   <SharedButton href="/floorplans" size="lg">
                     EXPLORE FLOORPLANS
                   </SharedButton>
@@ -290,7 +290,7 @@ export default function HomePage() {
             viewport={{ once: true }}
           >
             <SharedButton href="/floorplans" size="lg">
-              View All Floor Plans
+              VIEW ALL FLOOR PLANS
             </SharedButton>
           </motion.div>
         </div>
@@ -366,7 +366,7 @@ export default function HomePage() {
               className="w-full"
             >
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3237.9876543210!2d-81.6789012!3d36.2123456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8850f5f5f5f5f5f5%3A0x1234567890abcdef!2s381%20Meadowview%20Dr%2C%20Boone%2C%20NC%2028607!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus&q=381+Meadowview+Dr,+Boone+NC+28607"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3206.5449999999997!2d-81.6654753!3d36.1988493!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8850fb4c22bb3d33%3A0x424f3bc4aade6c19!2sThe%20View%20Apartments!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
                 width="100%"
                 height="500"
                 style={{ border: 0 }}
