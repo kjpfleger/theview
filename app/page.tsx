@@ -2,7 +2,21 @@
 import "../styles/globals.css"
 import { Card, CardContent } from "@/components/ui/card"
 import { SharedButton } from "@/components/shared-button"
-import { MapPin, Car, Waves, Bed, Bath, Maximize, Star, Utensils, Thermometer, Sun, Trash2, Home } from "lucide-react"
+import {
+  MapPin,
+  Car,
+  Waves,
+  Bed,
+  Bath,
+  Maximize,
+  Star,
+  Utensils,
+  Thermometer,
+  Sun,
+  Trash2,
+  Home,
+  Bus,
+} from "lucide-react"
 import { motion } from "framer-motion"
 import Image from "next/image"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
@@ -41,7 +55,9 @@ export default function HomePage() {
             <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold mb-6 text-white">THE VIEW</h1>
             <p className="text-lg md:text-xl lg:text-2xl mb-4 text-white">Luxury Living in Boone, NC</p>
             <p className="text-lg md:text-xl mb-10 max-w-4xl mx-auto leading-relaxed text-center text-background">
-              {"Newly built apartments near App State with modern amenities, mountain views, and unbeatable convenience."}
+              {
+                "Newly built apartments near App State with modern amenities, mountain views, and unbeatable convenience."
+              }
             </p>
             <div className="flex justify-center">
               <SharedButton href="/floorplans" size="lg">
@@ -93,21 +109,21 @@ export default function HomePage() {
       {/* Luxury Amenities Section */}
       <section className="py-16 md:py-24 bg-gray-50 w-full overflow-x-hidden">
         <div className="w-full max-w-none px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-12 items-stretch">
             {/* Left side - Image */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="w-full"
+              className="w-full h-full"
             >
               <Image
-                src="/images/kitchen-interior.png"
+                src="/images/luxury-20amenities.jpg"
                 alt="Modern kitchen with stainless steel appliances"
                 width={600}
-                height={400}
-                className="w-full h-auto object-cover rounded-sm shadow-lg"
+                height={800}
+                className="w-full h-full object-cover rounded-sm shadow-lg"
                 priority
               />
             </motion.div>
@@ -118,7 +134,7 @@ export default function HomePage() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="w-full"
+              className="w-full flex flex-col justify-center"
             >
               <h2 className="text-4xl md:text-5xl font-bold mb-6 text-black">
                 LUXURY
@@ -142,11 +158,11 @@ export default function HomePage() {
                 </div>
                 <div className="flex items-center space-x-3">
                   <Sun className="h-5 w-5 text-orange-600 flex-shrink-0" />
-                  <span className="text-black font-medium">Oversized Windows & Natural Light</span>
+                  <span className="text-black font-medium">Oversized Windows </span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <Trash2 className="h-5 w-5 text-orange-600 flex-shrink-0" />
-                  <span className="text-black font-medium">Dishwasher & Garbage Disposal</span>
+                  <span className="text-black font-medium">Dishwashers &amp; Microwaves </span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <Bath className="h-5 w-5 text-orange-600 flex-shrink-0" />
@@ -164,9 +180,13 @@ export default function HomePage() {
                   <Maximize className="h-5 w-5 text-orange-600 flex-shrink-0" />
                   <span className="text-black font-medium">10–20 ft Ceilings</span>
                 </div>
-                <div className="flex items-center space-x-3 md:col-span-2">
+                <div className="flex items-center space-x-3">
                   <Car className="h-5 w-5 text-orange-600 flex-shrink-0" />
                   <span className="text-black font-medium">On-Site Parking</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <Bus className="h-5 w-5 text-orange-600 flex-shrink-0" />
+                  <span className="text-black font-medium">Seconds walk to AppalCART</span>
                 </div>
               </div>
               {/* CTA Button */}
@@ -433,11 +453,21 @@ export default function HomePage() {
 
                 <div className="flex items-start space-x-4">
                   <div className="p-2 bg-orange-100 rounded-sm flex-shrink-0">
+                    <Bus className="h-6 w-6 text-orange-600" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-lg mb-1">Seconds walk to AppalCART</h3>
+                    <p className="text-black">Steps from two AppaLCART bus stops</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-4">
+                  <div className="p-2 bg-orange-100 rounded-sm flex-shrink-0">
                     <Car className="h-6 w-6 text-orange-600" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-lg mb-1">AppalCART Bus Stops</h3>
-                    <p className="text-black">Steps from two AppaLCART bus stops</p>
+                    <h3 className="font-bold text-lg mb-1">On-Site Parking</h3>
+                    <p className="text-black">Available for residents</p>
                   </div>
                 </div>
 
