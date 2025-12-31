@@ -36,14 +36,13 @@ export default function Unit101Page() {
 
   return (
     <UnitDetailTemplate
-      unitNumber="UNIT 101"
-      title="Corner Studio, 1 Bath"
+      unitName="UNIT 101"
+      unitType="Corner Studio, 1 Bath"
       description="Amazing corner studio, one-bath apartment with oversized windows, 10-foot ceilings and tons of natural light. Two spacious closets, in-unit washer and dryer, and an open kitchen–living layout. The gourmet kitchen includes stainless steel appliances—refrigerator with water and ice, microwave, oven range, and dishwasher. Thermostat-controlled heating and air conditioning throughout. On-site parking included. Located just a few seconds' walk from two AppalCART bus stops."
       bedrooms="Studio"
       bathrooms={1}
       squareFeet={375}
       price="$1,450"
-      available="Contact Us"
       images={images}
       keyFeatures={keyFeatures}
     />
