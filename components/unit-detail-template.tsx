@@ -326,10 +326,24 @@ export function UnitDetailTemplate({
                   <div className="py-4">
                     <p className="text-lg text-gray-700 leading-relaxed text-balance">{description}</p>
                   </div>
+
+                  {/* Video Tour Section */}
+                  <div className="border-t border-gray-200 pt-6 mt-6">
+                    <h2 className="text-2xl font-bold mb-4">VIDEO TOUR</h2>
+                    <div className="aspect-video w-full">
+                      <video
+                        controls
+                        className="w-full h-full rounded-lg"
+                        src={images.find((img) => img.type === "video")?.src}
+                      >
+                        Your browser does not support the video tag.
+                      </video>
+                    </div>
+                  </div>
                 </>
               )}
 
-              <div className="w-full">
+              <div className="w-full mt-6">
                 <SharedButton
                   href="https://docs.google.com/forms/d/e/1FAIpQLSekcj-ZKxZZ8ExLAw3by93i0y81oIp2p3lRoThEAJtWIdBvEw/viewform"
                   target="_blank"
@@ -525,11 +539,25 @@ export function UnitDetailTemplate({
                     <div className="py-4">
                       <p className="text-lg text-gray-700 leading-relaxed text-balance">{description}</p>
                     </div>
+
+                    {/* Video Tour Section */}
+                    <div className="border-t border-gray-200 pt-6 mt-6">
+                      <h2 className="text-2xl font-bold mb-4">VIDEO TOUR</h2>
+                      <div className="aspect-video w-full">
+                        <video
+                          controls
+                          className="w-full h-full rounded-lg"
+                          src={images.find((img) => img.type === "video")?.src}
+                        >
+                          Your browser does not support the video tag.
+                        </video>
+                      </div>
+                    </div>
                   </>
                 )}
 
                 {/* Apply Button */}
-                <div className="pt-4">
+                <div className="pt-6">
                   <SharedButton
                     href="https://docs.google.com/forms/d/e/1FAIpQLSekcj-ZKxZZ8ExLAw3by93i0y81oIp2p3lRoThEAJtWIdBvEw/viewform"
                     target="_blank"
