@@ -1,177 +1,103 @@
 "use client"
 
-import { useEffect } from "react"
-import { SharedButton } from "@/components/shared-button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Bed, Bath, Maximize, Check } from "lucide-react"
-import { motion } from "framer-motion"
-import Footer from "@/components/Footer"
-
-const fadeInUp = {
-  initial: { opacity: 0, y: 60 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6 },
-}
+import { UnitDetailTemplate } from "@/components/unit-detail-template"
 
 export default function Unit102Page() {
-  useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
-
-  const features = [
-    "In-unit washer / dryer",
-    "Gourmet kitchens with stainless steel appliances",
-    "Large windows and natural light",
-    "Dishwasher & garbage disposal",
-    "Microwave",
-    "Air Conditioning & Heat",
-    "10-20 ft ceilings",
-    "On-site parking included",
-    "Hardwood floors",
-    "Tiled shower tubs",
-  ]
-
   return (
-    <div className="min-h-screen py-20 w-full overflow-x-hidden">
-      <div className="container mx-auto px-4 max-w-full">
-        <motion.div
-          className="text-center mb-12"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <Badge className="mb-4 bg-orange-600 hover:bg-orange-700 text-white px-4 py-2">2 Bedroom</Badge>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">Unit 102</h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Ideal for roommates with separate bedrooms and bathrooms, offering privacy and comfort with shared common
-            areas.
-          </p>
-        </motion.div>
+    <UnitDetailTemplate
+      unitName="UNIT 102"
+      unitType="Corner 2 Bedrooms, 2 Baths"
+      bedrooms={2}
+      bathrooms={2}
+      squareFeet={624}
+      price="$1,100 / bed"
+      priceSecondary="$3,300 / unit"
+      description="Corner 2-bedroom, 2-bathroom apartment with an open kitchen, dining, and living area. Spacious closets, in-unit washer dryer, gourmet kitchen with stainless steel appliances (refrigerator with water and ice, microwave, range, and dishwasher).
 
-        <div className="grid lg:grid-cols-2 gap-12 mb-16">
-          {/* Floor Plan Image */}
-          <motion.div initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}>
-            <Card className="overflow-hidden">
-              <div className="aspect-square relative p-12">
-                <img
-                  src="/images/floorplans/unit-102.jpeg"
-                  alt="Unit 102 Floor Plan"
-                  className="w-full h-full object-cover rounded-lg"
-                />
-                <Badge className="absolute top-16 left-16 bg-orange-600">2 Bedroom</Badge>
-                <Badge className="absolute top-16 right-16 bg-orange-600">Available</Badge>
-              </div>
-            </Card>
-          </motion.div>
-
-          {/* Unit Details */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            className="space-y-8"
-          >
-            <Card>
-              <CardContent className="p-8">
-                <h2 className="text-2xl font-bold mb-6">Unit Specifications</h2>
-                <div className="grid grid-cols-3 gap-6 text-center">
-                  <div className="flex flex-col items-center space-y-2">
-                    <Bed className="h-8 w-8 text-orange-600" />
-                    <span className="text-2xl font-bold">2</span>
-                    <span className="text-gray-600">Bedrooms</span>
-                  </div>
-                  <div className="flex flex-col items-center space-y-2">
-                    <Bath className="h-8 w-8 text-orange-600" />
-                    <span className="text-2xl font-bold">2</span>
-                    <span className="text-gray-600">Bathrooms</span>
-                  </div>
-                  <div className="flex flex-col items-center space-y-2">
-                    <Maximize className="h-8 w-8 text-orange-600" />
-                    <span className="text-2xl font-bold">600</span>
-                    <span className="text-gray-600">Square Feet</span>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardContent className="p-8">
-                <h3 className="text-xl font-bold mb-4">Availability</h3>
-                <Badge className="bg-orange-600 text-white px-4 py-2 text-lg">Available</Badge>
-                <p className="text-gray-600 mt-4">This unit is currently available for lease.</p>
-              </CardContent>
-            </Card>
-          </motion.div>
-        </div>
-
-        {/* Unit Features */}
-        <motion.div variants={fadeInUp} initial="initial" animate="animate" className="mb-16">
-          <Card>
-            <CardContent className="p-8">
-              <h2 className="text-2xl font-bold mb-8 text-center">Unit Features</h2>
-              <div className="grid md:grid-cols-2 gap-4">
-                {features.map((feature, index) => (
-                  <div key={index} className="flex items-center space-x-3">
-                    <Check className="h-5 w-5 text-orange-600 flex-shrink-0" />
-                    <span className="text-gray-700">{feature}</span>
-                  </div>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-        </motion.div>
-
-        {/* Interior Photos */}
-        <motion.div variants={fadeInUp} initial="initial" animate="animate" className="mb-16">
-          <h2 className="text-2xl font-bold mb-8 text-center">Interior Photos</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-            <Card className="overflow-hidden hover:shadow-lg transition-shadow">
-              <div className="aspect-video relative">
-                <img
-                  src="/images/interior-1.png"
-                  alt="Interior view of Unit 102"
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                  onError={(e) => {
-                    console.log("Image failed to load:", e.target.src)
-                    e.target.style.display = "none"
-                  }}
-                />
-              </div>
-            </Card>
-            <Card className="overflow-hidden hover:shadow-lg transition-shadow">
-              <div className="aspect-video relative">
-                <img
-                  src="/images/interior-2.png"
-                  alt="Interior view of Unit 102"
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                  onError={(e) => {
-                    console.log("Image failed to load:", e.target.src)
-                    e.target.style.display = "none"
-                  }}
-                />
-              </div>
-            </Card>
-          </div>
-        </motion.div>
-
-        {/* Navigation */}
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-        >
-          <SharedButton href="/floorplans" size="lg" variant="outline">
-            ← Back to Floor Plans
-          </SharedButton>
-        </motion.div>
-      </div>
-
-      {/* Footer */}
-      <Footer />
-    </div>
+Each bedroom has a private bathroom, with the primary bedroom featuring an en-suite. Individually controlled heating and air conditioning in each room. Both bathrooms have ample vanity storage and floor to ceiling shelves for linens and toiletries. On-site parking included. Located just a few seconds' walk from two AppalCART bus stops."
+      images={[
+        {
+          src: "/images/rbs-the-20view-20apts-102-0003.jpg",
+          alt: "Unit 102 living area and kitchen",
+          type: "image",
+        },
+        {
+          src: "/images/rbs-the-20view-20apts-102-0005.jpg",
+          alt: "Kitchen with stainless steel appliances",
+          type: "image",
+        },
+        {
+          src: "/images/rbs-the-20view-20apts-102-0004.jpg",
+          alt: "Open kitchen and dining area",
+          type: "image",
+        },
+        {
+          src: "/images/rbs-the-20view-20apts-102-0012.jpg",
+          alt: "Bedroom with mirrored closet",
+          type: "image",
+        },
+        {
+          src: "/images/rbs-the-20view-20apts-102-0010.jpg",
+          alt: "Bedroom with windows",
+          type: "image",
+        },
+        {
+          src: "/images/rbs-the-20view-20apts-102-0009.jpg",
+          alt: "Spacious bedroom",
+          type: "image",
+        },
+        {
+          src: "/images/rbs-the-20view-20apts-102-0013.jpg",
+          alt: "Master bedroom",
+          type: "image",
+        },
+        {
+          src: "/images/rbs-the-20view-20apts-102-0007.jpg",
+          alt: "Primary bathroom with double vanity",
+          type: "image",
+        },
+        {
+          src: "/images/rbs-the-20view-20apts-102-0014.jpg",
+          alt: "Bathroom with tub and shower",
+          type: "image",
+        },
+        {
+          src: "/images/rbs-the-20view-20apts-102-0006.jpg",
+          alt: "Bathroom with storage shelves",
+          type: "image",
+        },
+        {
+          src: "/images/rbs-the-20view-20apts-102-0015.jpg",
+          alt: "Secondary bathroom with tub",
+          type: "image",
+        },
+        {
+          src: "/images/rbs-the-20view-20apts-102-0016.jpg",
+          alt: "In-unit washer and dryer",
+          type: "image",
+        },
+        {
+          src: "/images/app-state-location.jpg",
+          alt: "Location near App State University and AppalCART",
+          type: "image",
+        },
+        {
+          src: "/images/the-view-location-callouts.jpg",
+          alt: "Location near Publix, Walmart, and The View",
+          type: "image",
+        },
+        {
+          src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/102-Kkk7eAZEsoLNzFJZTLFFolMvYVbvZk.mp4",
+          alt: "Video Tour - Unit 102",
+          type: "video",
+          thumbnail: "/video-tour-thumbnail.jpg",
+        },
+        {
+          src: "/images/unit-102-floorplan.png",
+          alt: "Unit 102 Floor Plan",
+          type: "image",
+        },
+      ]}
+    />
   )
 }

@@ -13,6 +13,7 @@ interface UnitDetailProps {
   bathrooms: number
   squareFeet: number | string
   price: string
+  priceSecondary?: string
   description: string
   images: Array<{ src: string; type: "image" | "video" }>
   keyFeatures?: string[]
@@ -25,6 +26,7 @@ export function UnitDetailTemplate({
   bathrooms,
   squareFeet,
   price,
+  priceSecondary,
   description,
   images,
   keyFeatures = [],
@@ -315,6 +317,7 @@ export function UnitDetailTemplate({
                     <div>
                       <p className="text-sm font-medium text-gray-500 uppercase mb-1">Price</p>
                       <p className="text-3xl font-bold">{price}</p>
+                      {priceSecondary && <p className="text-3xl font-bold">{priceSecondary}</p>}
                     </div>
                     <div>
                       <p className="text-sm font-medium text-gray-500 uppercase mb-1">Available</p>
@@ -528,6 +531,7 @@ export function UnitDetailTemplate({
                       <div>
                         <p className="text-sm font-medium text-gray-500 uppercase mb-1">Price</p>
                         <p className="text-3xl font-bold">{price}</p>
+                        {priceSecondary && <p className="text-3xl font-bold">{priceSecondary}</p>}
                       </div>
                       <div>
                         <p className="text-sm font-medium text-gray-500 uppercase mb-1">Available</p>
