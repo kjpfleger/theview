@@ -11,12 +11,12 @@ interface UnitDetailProps {
   unitType: string
   bedrooms: number | string
   bathrooms: number
-  squareFeet: number | string
+  squareFeet: number
   price: string
   priceSecondary?: string
   available?: string
   description: string
-  images: Array<{ src: string; type: "image" | "video"; alt?: string; thumbnail?: string }>
+  images: Array<{ src: string; type: "image" | "video"; alt?: string; thumbnail?: string; features?: string[] }>
   keyFeatures?: string[]
 }
 
@@ -43,6 +43,7 @@ export function UnitDetailTemplate({
   const [isVideoTourActive, setIsVideoTourActive] = useState(false)
 
   const isVideoActive = images[current]?.type === "video"
+  const currentFeatures = images[current]?.features || keyFeatures
 
   const handleMobileScroll = useCallback(() => {
     if (isScrollingRef.current) return
@@ -250,14 +251,15 @@ export function UnitDetailTemplate({
             </div>
           </motion.div>
 
+          {/* Mobile Content Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="px-4 pb-16"
+            className="w-full px-4"
           >
-            <div className="max-w-full">
-              {isVideoActive && keyFeatures.length > 0 ? (
+            <div className="space-y-6">
+              {isVideoActive && currentFeatures.length > 0 ? (
                 // Video Tour View
                 <>
                   <div className="mb-6">
@@ -267,7 +269,7 @@ export function UnitDetailTemplate({
                   <div className="mb-6">
                     <h3 className="text-2xl font-bold mb-4">Key Features</h3>
                     <ul className="space-y-3">
-                      {keyFeatures.map((feature, index) => (
+                      {currentFeatures.map((feature, index) => (
                         <li key={index} className="flex items-start gap-3">
                           <span className="text-orange-600 mt-1.5">•</span>
                           <span className="text-base text-gray-700">{feature}</span>
@@ -468,10 +470,10 @@ export function UnitDetailTemplate({
               <motion.div
                 initial={{ opacity: 0, x: 50 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
                 className="flex flex-col space-y-6"
               >
-                {isVideoActive && keyFeatures.length > 0 ? (
+                {isVideoActive && currentFeatures.length > 0 ? (
                   // Video Tour View
                   <>
                     <div>
@@ -481,7 +483,7 @@ export function UnitDetailTemplate({
                     <div>
                       <h3 className="text-2xl font-bold mb-6">Key Features</h3>
                       <ul className="space-y-4">
-                        {keyFeatures.map((feature, index) => (
+                        {currentFeatures.map((feature, index) => (
                           <li key={index} className="flex items-start gap-3">
                             <span className="text-orange-600 text-xl mt-1">•</span>
                             <span className="text-lg text-gray-700">{feature}</span>
