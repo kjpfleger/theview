@@ -14,8 +14,9 @@ interface UnitDetailProps {
   squareFeet: number | string
   price: string
   priceSecondary?: string
+  available?: string
   description: string
-  images: Array<{ src: string; type: "image" | "video" }>
+  images: Array<{ src: string; type: "image" | "video"; alt?: string; thumbnail?: string }>
   keyFeatures?: string[]
 }
 
@@ -27,6 +28,7 @@ export function UnitDetailTemplate({
   squareFeet,
   price,
   priceSecondary,
+  available = "Contact Us",
   description,
   images,
   keyFeatures = [],
@@ -200,7 +202,7 @@ export function UnitDetailTemplate({
                       ) : (
                         <img
                           src={item.src || "/placeholder.svg"}
-                          alt={`${unitName} - Image ${index + 1}`}
+                          alt={item.alt || `${unitName} - Image ${index + 1}`}
                           className="absolute inset-0 w-full h-full object-contain"
                         />
                       )}
@@ -237,8 +239,8 @@ export function UnitDetailTemplate({
                       </div>
                     ) : (
                       <img
-                        src={item.src || "/placeholder.svg"}
-                        alt={`Thumbnail ${index + 1}`}
+                        src={item.thumbnail || item.src || "/placeholder.svg"}
+                        alt={item.alt || `Thumbnail ${index + 1}`}
                         className="w-full h-full object-cover"
                       />
                     )}
@@ -321,7 +323,7 @@ export function UnitDetailTemplate({
                     </div>
                     <div>
                       <p className="text-sm font-medium text-gray-500 uppercase mb-1">Available</p>
-                      <p className="text-xl font-bold uppercase">Contact Us</p>
+                      <p className="text-xl font-bold uppercase">{available}</p>
                     </div>
                   </div>
 
@@ -402,7 +404,7 @@ export function UnitDetailTemplate({
                           ) : (
                             <img
                               src={item.src || "/placeholder.svg"}
-                              alt={`${unitName} - Image ${index + 1}`}
+                              alt={item.alt || `${unitName} - Image ${index + 1}`}
                               className="absolute inset-0 w-full h-full object-contain"
                             />
                           )}
@@ -452,8 +454,8 @@ export function UnitDetailTemplate({
                         </div>
                       ) : (
                         <img
-                          src={item.src || "/placeholder.svg"}
-                          alt={`Thumbnail ${index + 1}`}
+                          src={item.thumbnail || item.src || "/placeholder.svg"}
+                          alt={item.alt || `Thumbnail ${index + 1}`}
                           className="w-full h-full object-cover"
                         />
                       )}
@@ -535,7 +537,7 @@ export function UnitDetailTemplate({
                       </div>
                       <div>
                         <p className="text-sm font-medium text-gray-500 uppercase mb-1">Available</p>
-                        <p className="text-xl font-bold uppercase">Contact Us</p>
+                        <p className="text-xl font-bold uppercase">{available}</p>
                       </div>
                     </div>
 
