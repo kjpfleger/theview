@@ -10,52 +10,58 @@ import Footer from "@/components/Footer"
 
 const faqs = [
   {
-    question: "What utilities are included in the rent?",
+    question: "How close is it to Appalachian State University?",
     answer:
-      "Trash removal is included in your rent. Residents are responsible for water, electricity and internet. Residents are responsible for setting up the appropriate accounts directly with each utility company.",
+      "A few seconds' walk to two AppalCART bus stops and a short 3–5 minute drive to Appalachian State University's campus.",
   },
   {
     question: "Is parking available?",
-    answer: "Yes, we provide on-site parking for all residents. Each unit comes with designated parking spaces.",
-  },
-  {
-    question: "Are pets allowed?",
     answer:
-      "No.",
+      "Yes. On-site parking is included for all residents. Parking permits are provided at move-in.",
   },
   {
-    question: "What is the lease term?",
+    question: "What utilities are included in the rent?",
     answer:
-      "We offer flexible lease terms including 12-month leases. Academic year leases may also be available for students.",
-  },
-  {
-    question: "Is there a security deposit?",
-    answer: "Yes, a security deposit is required upon lease signing. The amount varies by unit type and lease terms.",
+      "Trash removal is included. Residents are responsible for water, electricity, and internet. The building is brand new and energy efficient, so utility costs are typically low. Residents set up accounts directly with each utility provider.",
   },
   {
     question: "What appliances are included?",
     answer:
-      "All units come fully equipped with stainless steel appliances including refrigerator, stove, oven, dishwasher, and in-unit washer and dryer.",
-  },
-  {
-    question: "How close is it to App State?",
-    answer:
-      "The View is conveniently located just 3-5 minutes drive from Appalachian State University campus. We're also steps away from two AppalCART bus stops for easy campus access.",
-  },
-  {
-    question: "What shopping and dining options are nearby?",
-    answer:
-      "You'll be within walking distance of Walmart, Publix, and numerous restaurants and coffee shops. Everything you need is right at your doorstep.",
+      "All units include stainless steel appliances: refrigerator, stove, oven, dishwasher, microwave, and an in-unit washer and dryer.",
   },
   {
     question: "Are the apartments furnished?",
     answer:
-      "Our apartments come unfurnished, giving you the freedom to personalize your space. However, all major appliances are included.",
+      "No. Apartments are unfurnished, allowing residents to personalize their space. All major appliances are included.",
+  },
+  {
+    question: "Are pets allowed?",
+    answer: "No.",
+  },
+  {
+    question: "What is the lease term?",
+    answer:
+      "Standard leases are 12 months. Leases typically begin in late July or early August. Contact us for flexibility on move-in dates.",
+  },
+  {
+    question: "Is there a security deposit?",
+    answer:
+      "Yes. A security deposit is required at lease execution. Amounts vary by unit type and lease terms.",
+  },
+  {
+    question: "What shopping and dining options are nearby?",
+    answer:
+      "Walkable to Walmart, Publix, Food Lion, and a variety of restaurants and coffee shops.",
+  },
+  {
+    question: "Do you offer tours?",
+    answer:
+      "Yes. Each unit has a dedicated page with photos, floor plans, and a video tour.",
   },
   {
     question: "What is the application process?",
     answer:
-      "Contact us to schedule a tour and discuss available units. We'll guide you through our straightforward application process and answer any questions you may have.",
+      "Submit an online application. Our team will follow up with next steps. Proof of income equal to three times the monthly rent is required, or a lease guarantor if income requirements are not met. Contact us with any questions.",
   },
 ]
 
