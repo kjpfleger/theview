@@ -179,7 +179,6 @@ export function UnitDetailTemplate({
                   WebkitOverflowScrolling: "touch",
                   scrollbarWidth: "none",
                   msOverflowStyle: "none",
-                  touchAction: "pan-x",
                 }}
               >
                 {images.map((item, index) => (
