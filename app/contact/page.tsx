@@ -89,7 +89,7 @@ export default function ContactPage() {
                         href="https://www.google.com/maps/dir//The+View+Apartments+381+Meadowview+Dr+Boone,+NC+28607/@36.1988493,-81.6629004,16z/data=!4m5!4m4!1m0!1m2!1m1!1s0x8850fb4c22bb3d33:0x424f3bc4aade6c19"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center text-orange-600 font-semibold hover:underline transition-colors"
+                        className="inline-flex items-center text-orange-600 font-bold hover:underline transition-colors uppercase tracking-wide"
                       >
                         GET DIRECTIONS
                         <ArrowRight className="ml-2 h-5 w-5" />
@@ -147,7 +147,7 @@ export default function ContactPage() {
               </p>
               <Link
                 href="/gallery"
-                className="inline-flex items-center text-orange-600 font-semibold hover:underline transition-colors"
+                className="inline-flex items-center text-orange-600 font-bold hover:underline transition-colors uppercase tracking-wide"
               >
                 VIEW GALLERY
                 <ArrowRight className="ml-2 h-5 w-5" />

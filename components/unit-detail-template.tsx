@@ -163,7 +163,7 @@ export function UnitDetailTemplate({
     <div className="min-h-screen w-full overflow-x-hidden">
       <div className="w-full">
         {/* Mobile Layout - Full Width Stacked */}
-        <div className="lg:hidden">
+        <div className="lg:hidden pt-6">
           {/* Carousel Section - Full Width on Mobile */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -350,7 +350,7 @@ export function UnitDetailTemplate({
                 </>
               )}
 
-              <div className="w-full mt-6">
+              <div className="w-full mt-6 mb-12">
                 <SharedButton
                   href="https://docs.google.com/forms/d/e/1FAIpQLSekcj-ZKxZZ8ExLAw3by93i0y81oIp2p3lRoThEAJtWIdBvEw/viewform"
                   target="_blank"
@@ -581,7 +581,9 @@ export function UnitDetailTemplate({
         </div>
       </div>
 
-      <Footer />
+      <div className="mt-16 lg:mt-0">
+        <Footer />
+      </div>
     </div>
   )
 }

@@ -113,7 +113,7 @@ export default function GalleryPage() {
       <section className="py-12 md:py-16 bg-white">
         <div className="container mx-auto px-4 max-w-4xl text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            TOUR YOUR <span className="text-[#C75D2C]">HOME</span>
+            TOUR YOUR <span className="text-orange-600">HOME</span>
           </h2>
           <p className="text-gray-700 text-lg md:text-xl leading-relaxed mb-10">
             The View offers a quiet oasis with mountain views in the heart of Boone—walkable to shops and dining, and minutes from Appalachian State University. Browse spacious apartments, modern amenities, and comfortable living spaces.
@@ -131,7 +131,7 @@ export default function GalleryPage() {
                 onClick={() => setActiveTab(tab)}
                 className={`whitespace-nowrap px-4 py-2 text-sm md:text-base font-semibold tracking-wide transition-colors ${
                   activeTab === tab
-                    ? "text-black border-b-2 border-[#C75D2C]"
+                    ? "text-black border-b-2 border-orange-600"
                     : "text-gray-500 hover:text-gray-700"
                 }`}
               >

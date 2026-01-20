@@ -173,7 +173,7 @@ export default function FloorPlansPage() {
                     <div className="flex justify-end">
                       <a
                         href={`/floorplans/unit-${unit.id}`}
-                        className="inline-flex items-center text-sm font-medium text-orange-600 hover:underline transition-colors group uppercase"
+                        className="inline-flex items-center text-sm font-bold text-orange-600 hover:underline transition-colors group uppercase tracking-wide"
                       >
                         VIEW UNIT
                         <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
