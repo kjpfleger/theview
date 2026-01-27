@@ -16,7 +16,7 @@ export default function ContactPage() {
       {/* Header Section */}
       <div className="bg-gray-50 py-16">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-orange-600 font-semibold text-lg mb-2">Contact Us</h2>
+          <h2 className="text-orange-600 font-bold text-4xl md:text-5xl mb-2">Contact Us</h2>
           <h1 className="text-4xl md:text-5xl font-bold mb-4">GET IN TOUCH</h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Ready to make The View your home? Contact us by phone or email. We look forward to meeting you.
