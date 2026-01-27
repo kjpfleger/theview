@@ -82,15 +82,19 @@ export function UnitDetailTemplate({
   }, [current, images.length])
 
   const scrollToMobileSlide = (index: number) => {
+    const carousel = mobileCarouselRef.current
     const element = mobileSlideRefs.current[index]
-    if (element) {
+    if (carousel && element) {
       isScrollingRef.current = true
       setCurrent(index)
 
-      element.scrollIntoView({
+      const slideWidth = element.offsetWidth
+      const gap = 12 // gap-3 = 12px
+      const scrollPosition = index * (slideWidth + gap)
+      
+      carousel.scrollTo({
+        left: scrollPosition,
         behavior: "smooth",
-        block: "nearest",
-        inline: "start",
       })
 
       setTimeout(() => {
@@ -100,15 +104,19 @@ export function UnitDetailTemplate({
   }
 
   const scrollToDesktopSlide = (index: number) => {
+    const carousel = desktopCarouselRef.current
     const element = desktopSlideRefs.current[index]
-    if (element) {
+    if (carousel && element) {
       isScrollingRef.current = true
       setCurrent(index)
 
-      element.scrollIntoView({
+      const slideWidth = element.offsetWidth
+      const gap = 12 // gap-3 = 12px
+      const scrollPosition = index * (slideWidth + gap)
+      
+      carousel.scrollTo({
+        left: scrollPosition,
         behavior: "smooth",
-        block: "nearest",
-        inline: "start",
       })
 
       setTimeout(() => {
