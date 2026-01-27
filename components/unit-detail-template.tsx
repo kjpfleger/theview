@@ -226,10 +226,38 @@ export function UnitDetailTemplate({
               </div>
             </div>
 
-            {/* Thumbnail strip with fixed Video Tour & Floor Plan */}
+            {/* Thumbnail strip with fixed Video Tour & Floor Plan on right */}
             <div className="px-4 mt-4">
               <div className="flex gap-2">
-                {/* Fixed Video Tour & Floor Plan buttons */}
+                {/* Scrollable thumbnails */}
+                <div
+                  ref={thumbnailContainerRef}
+                  className="flex gap-2 overflow-x-auto pb-2 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100 flex-1"
+                >
+                  {images.map((item, index) => {
+                    // Skip video and floor plan as they have fixed buttons on right
+                    if (index === videoIndex || index === floorPlanIndex) return null
+                    return (
+                      <button
+                        key={index}
+                        onClick={() => scrollToMobileSlide(index)}
+                        className={`flex-shrink-0 w-20 h-20 rounded-md overflow-hidden border-2 transition-all ${
+                          current === index
+                            ? "border-orange-600 ring-2 ring-orange-600 ring-opacity-50"
+                            : "border-gray-300 hover:border-gray-400"
+                        }`}
+                      >
+                        <img
+                          src={item.thumbnail || item.src || "/placeholder.svg"}
+                          alt={item.alt || `Thumbnail ${index + 1}`}
+                          className="w-full h-full object-cover"
+                        />
+                      </button>
+                    )
+                  })}
+                </div>
+
+                {/* Fixed Video Tour & Floor Plan buttons on right */}
                 <div className="flex-shrink-0 flex gap-2">
                   {videoIndex >= 0 && (
                     <button
@@ -264,34 +292,6 @@ export function UnitDetailTemplate({
                       <span className="text-[10px] font-medium leading-tight text-center">FLOOR<br/>PLAN</span>
                     </button>
                   )}
-                </div>
-                
-                {/* Scrollable thumbnails */}
-                <div
-                  ref={thumbnailContainerRef}
-                  className="flex gap-2 overflow-x-auto pb-2 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100"
-                >
-                  {images.map((item, index) => {
-                    // Skip video and floor plan as they have fixed buttons
-                    if (index === videoIndex || index === floorPlanIndex) return null
-                    return (
-                      <button
-                        key={index}
-                        onClick={() => scrollToMobileSlide(index)}
-                        className={`flex-shrink-0 w-20 h-20 rounded-md overflow-hidden border-2 transition-all ${
-                          current === index
-                            ? "border-orange-600 ring-2 ring-orange-600 ring-opacity-50"
-                            : "border-gray-300 hover:border-gray-400"
-                        }`}
-                      >
-                        <img
-                          src={item.thumbnail || item.src || "/placeholder.svg"}
-                          alt={item.alt || `Thumbnail ${index + 1}`}
-                          className="w-full h-full object-cover"
-                        />
-                      </button>
-                    )
-                  })}
                 </div>
               </div>
             </div>
