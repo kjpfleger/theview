@@ -189,24 +189,24 @@ export function UnitDetailTemplate({
                     }}
                     className="snap-center flex-shrink-0 w-full"
                   >
-                    <div className="relative w-full aspect-[3/4] bg-gray-100 rounded-lg overflow-hidden">
-                      {item.type === "video" ? (
-                        <video
-                          src={item.src}
-                          controls
-                          className="absolute inset-0 w-full h-full object-contain"
-                          controlsList="nodownload"
-                        >
-                          Your browser does not support the video tag.
-                        </video>
-                      ) : (
-                        <img
-                          src={item.src || "/placeholder.svg"}
-                          alt={item.alt || `${unitName} - Image ${index + 1}`}
-                          className="absolute inset-0 w-full h-full object-contain"
-                        />
-                      )}
-                    </div>
+<div className="relative w-full aspect-[4/3] rounded-lg overflow-hidden">
+                                      {item.type === "video" ? (
+                                        <video
+                                          src={item.src}
+                                          controls
+                                          className="absolute inset-0 w-full h-full object-cover"
+                                          controlsList="nodownload"
+                                        >
+                                          Your browser does not support the video tag.
+                                        </video>
+                                      ) : (
+                                        <img
+                                          src={item.src || "/placeholder.svg"}
+                                          alt={item.alt || `${unitName} - Image ${index + 1}`}
+                                          className="absolute inset-0 w-full h-full object-cover"
+                                        />
+                                      )}
+                                    </div>
                   </div>
                 ))}
               </div>
