@@ -479,36 +479,69 @@ export function UnitDetailTemplate({
                   </button>
                 </div>
 
-                {/* Thumbnail strip below carousel */}
-                <div className="mt-4 flex gap-2 overflow-x-auto pb-2 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
-                  {images.map((item, index) => (
-                    <button
-                      key={index}
-                      onClick={() => scrollToDesktopSlide(index)}
-                      className={`flex-shrink-0 w-20 h-20 rounded-md overflow-hidden border-2 transition-all ${
-                        current === index
-                          ? "border-orange-600 ring-2 ring-orange-600 ring-opacity-50"
-                          : "border-gray-300 hover:border-gray-400"
-                      }`}
-                    >
-                      {item.type === "video" ? (
-                        <div className="relative w-full h-full bg-gray-200 flex items-center justify-center">
-                          <video src={item.src} className="w-full h-full object-cover" />
-                          <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30">
-                            <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-                              <path d="M8 5v14l11-7z" />
-                            </svg>
-                          </div>
-                        </div>
-                      ) : (
-                        <img
-                          src={item.thumbnail || item.src || "/placeholder.svg"}
-                          alt={item.alt || `Thumbnail ${index + 1}`}
-                          className="w-full h-full object-cover"
-                        />
-                      )}
-                    </button>
-                  ))}
+                {/* Thumbnail strip below carousel with fixed Video Tour & Floor Plan on right */}
+                <div className="mt-4 flex gap-2">
+                  {/* Scrollable thumbnails */}
+                  <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100 flex-1">
+                    {images.map((item, index) => {
+                      // Skip video and floor plan as they have fixed buttons on right
+                      if (index === videoIndex || index === floorPlanIndex) return null
+                      return (
+                        <button
+                          key={index}
+                          onClick={() => scrollToDesktopSlide(index)}
+                          className={`flex-shrink-0 w-20 h-20 rounded-md overflow-hidden border-2 transition-all ${
+                            current === index
+                              ? "border-orange-600 ring-2 ring-orange-600 ring-opacity-50"
+                              : "border-gray-300 hover:border-gray-400"
+                          }`}
+                        >
+                          <img
+                            src={item.thumbnail || item.src || "/placeholder.svg"}
+                            alt={item.alt || `Thumbnail ${index + 1}`}
+                            className="w-full h-full object-cover"
+                          />
+                        </button>
+                      )
+                    })}
+                  </div>
+
+                  {/* Fixed Video Tour & Floor Plan buttons on right */}
+                  <div className="flex-shrink-0 flex gap-2">
+                    {videoIndex >= 0 && (
+                      <button
+                        onClick={() => scrollToDesktopSlide(videoIndex)}
+                        className={`flex flex-col items-center justify-center w-20 h-20 rounded-md border-2 transition-all bg-white ${
+                          current === videoIndex
+                            ? "border-orange-600 ring-2 ring-orange-600 ring-opacity-50"
+                            : "border-gray-300 hover:border-gray-400"
+                        }`}
+                      >
+                        <svg className="w-6 h-6 mb-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                          <polyline points="9 22 9 12 15 12 15 22" />
+                        </svg>
+                        <span className="text-[10px] font-medium leading-tight text-center">VIDEO<br/>TOUR</span>
+                      </button>
+                    )}
+                    {floorPlanIndex >= 0 && (
+                      <button
+                        onClick={() => scrollToDesktopSlide(floorPlanIndex)}
+                        className={`flex flex-col items-center justify-center w-20 h-20 rounded-md border-2 transition-all bg-white ${
+                          current === floorPlanIndex
+                            ? "border-orange-600 ring-2 ring-orange-600 ring-opacity-50"
+                            : "border-gray-300 hover:border-gray-400"
+                        }`}
+                      >
+                        <svg className="w-6 h-6 mb-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                          <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                          <line x1="3" y1="9" x2="21" y2="9" />
+                          <line x1="9" y1="21" x2="9" y2="9" />
+                        </svg>
+                        <span className="text-[10px] font-medium leading-tight text-center">FLOOR<br/>PLAN</span>
+                      </button>
+                    )}
+                  </div>
                 </div>
               </motion.div>
 
