@@ -170,7 +170,7 @@ export function UnitDetailTemplate({
   // Find video and floor plan indices
   const videoIndex = images.findIndex((img) => img.type === "video")
   const floorPlanIndex = images.findIndex(
-    (img) => img.alt?.toLowerCase().includes("floor plan") || img.src?.toLowerCase().includes("floorplan")
+    (img) => img.alt?.toLowerCase().includes("floor plan") || img.src?.toLowerCase().includes("floor-plan") || img.src?.toLowerCase().includes("floorplan")
   )
 
   return (
