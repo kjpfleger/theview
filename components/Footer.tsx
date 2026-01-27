@@ -21,12 +21,12 @@ export default function Footer() {
             className="flex md:hidden items-center justify-center gap-2 text-xl font-semibold"
           >
             <Phone className="h-5 w-5 flex-shrink-0" />
-            <span>Call (828) 414-1040</span>
+            <span>Call 828-414-1040</span>
           </a>
           {/* Desktop: non-clickable text */}
           <div className="hidden md:flex items-center justify-center gap-2 text-2xl font-semibold">
             <Phone className="h-6 w-6 flex-shrink-0" />
-            <span>Call (828) 414-1040</span>
+            <span>Call 828-414-1040</span>
           </div>
         </motion.div>
       </div>

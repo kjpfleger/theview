@@ -2,7 +2,6 @@
 
 import { useEffect } from "react"
 import Link from "next/link"
-import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import { Phone, Mail, MapPin, ArrowRight } from "lucide-react"
 import Footer from "@/components/Footer"
@@ -17,7 +16,7 @@ export default function ContactPage() {
       {/* Header Section */}
       <div className="bg-gray-50 py-16">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <Badge className="mb-4 bg-orange-600 hover:bg-orange-700 text-white">Contact Us</Badge>
+          <h2 className="text-orange-600 font-semibold text-lg mb-2">Contact Us</h2>
           <h1 className="text-4xl md:text-5xl font-bold mb-4">GET IN TOUCH</h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Ready to make The View your home? Contact us by phone or email. We look forward to meeting you.
@@ -40,12 +39,17 @@ export default function ContactPage() {
                     <div className="min-w-0">
                       <h3 className="text-xl font-semibold mb-2">Phone</h3>
                       <p className="text-gray-600 mb-2">Call us directly to speak with our leasing team</p>
+                      {/* Mobile: clickable phone link */}
                       <a
                         href="tel:8284141040"
-                        className="text-orange-600 font-semibold hover:underline transition-colors"
+                        className="md:hidden text-orange-600 font-semibold hover:underline transition-colors"
                       >
-                        (828) 414-1040
+                        828-414-1040
                       </a>
+                      {/* Desktop: non-clickable text */}
+                      <span className="hidden md:inline text-orange-600 font-semibold">
+                        828-414-1040
+                      </span>
                     </div>
                   </div>
                 </CardContent>
