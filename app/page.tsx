@@ -1,4 +1,5 @@
 "use client"
+
 import "../styles/globals.css"
 import { SharedButton } from "@/components/shared-button"
 import { MapPin, Car, Waves, Bath, Maximize, Star, Utensils, Thermometer, Sun, Trash2, Home, Bus } from "lucide-react"
