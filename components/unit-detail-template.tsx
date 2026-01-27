@@ -171,10 +171,10 @@ export function UnitDetailTemplate({
             transition={{ duration: 0.6 }}
             className="w-full mb-8"
           >
-            <div className="relative w-full">
+            <div className="relative w-full px-4">
               <div
                 ref={mobileCarouselRef}
-                className="overflow-x-scroll scrollbar-hide snap-x snap-mandatory flex gap-3 w-full pl-4"
+                className="overflow-x-scroll scrollbar-hide snap-x snap-mandatory flex gap-3 w-full"
                 style={{
                   WebkitOverflowScrolling: "touch",
                   scrollbarWidth: "none",
@@ -187,8 +187,7 @@ export function UnitDetailTemplate({
                     ref={(el) => {
                       mobileSlideRefs.current[index] = el
                     }}
-                    className="snap-start flex-shrink-0"
-                    style={{ width: "calc(100% - 2rem)" }}
+                    className="snap-center flex-shrink-0 w-full"
                   >
 <div className="relative w-full aspect-[4/3] rounded-lg overflow-hidden">
                                       {item.type === "video" ? (
