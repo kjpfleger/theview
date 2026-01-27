@@ -14,11 +14,14 @@ export default function Footer() {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">Ready to Make The View Your Home?</h2>
-          <p className="text-lg md:text-xl mb-8 text-orange-100 max-w-2xl mx-auto">Contact us today.</p>
-          <div className="flex items-center justify-center space-x-2 text-xl md:text-2xl font-semibold">
+          <p className="text-lg md:text-xl mb-8 text-orange-100 max-w-2xl mx-auto">Contact us today</p>
+          <a
+            href="tel:8284141040"
+            className="flex items-center justify-center gap-2 text-xl md:text-2xl font-semibold hover:underline transition-colors"
+          >
             <Phone className="h-5 w-5 md:h-6 md:w-6 flex-shrink-0" />
             <span>Call (828) 414-1040</span>
-          </div>
+          </a>
         </motion.div>
       </div>
     </section>
