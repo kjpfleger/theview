@@ -203,24 +203,31 @@ export function UnitDetailTemplate({
                     }}
                     className="snap-center flex-shrink-0 w-full"
                   >
-<div className="relative w-full aspect-[4/3] rounded-lg overflow-hidden">
-                                      {item.type === "video" ? (
-                                        <video
-                                          src={item.src}
-                                          controls
-                                          className="absolute inset-0 w-full h-full object-cover"
-                                          controlsList="nodownload"
-                                        >
-                                          Your browser does not support the video tag.
-                                        </video>
-                                      ) : (
-                                        <img
-                                          src={item.src || "/placeholder.svg"}
-                                          alt={item.alt || `${unitName} - Image ${index + 1}`}
-                                          className="absolute inset-0 w-full h-full object-cover"
-                                        />
-                                      )}
-                                    </div>
+{(() => {
+                      const isFloorPlan = item.alt?.toLowerCase().includes("floor plan") || 
+                                          item.src?.toLowerCase().includes("floor-plan") || 
+                                          item.src?.toLowerCase().includes("floorplan")
+                      return (
+                        <div className={`relative w-full ${isFloorPlan ? 'aspect-square' : 'aspect-[4/3]'} rounded-lg overflow-hidden ${isFloorPlan ? 'bg-white' : ''}`}>
+                          {item.type === "video" ? (
+                            <video
+                              src={item.src}
+                              controls
+                              className="absolute inset-0 w-full h-full object-cover"
+                              controlsList="nodownload"
+                            >
+                              Your browser does not support the video tag.
+                            </video>
+                          ) : (
+                            <img
+                              src={item.src || "/placeholder.svg"}
+                              alt={item.alt || `${unitName} - Image ${index + 1}`}
+                              className={`absolute inset-0 w-full h-full ${isFloorPlan ? 'object-contain p-2' : 'object-cover'}`}
+                            />
+                          )}
+                        </div>
+                      )
+                    })()}
                   </div>
                 ))}
               </div>
@@ -431,34 +438,39 @@ export function UnitDetailTemplate({
                       msOverflowStyle: "none",
                     }}
                   >
-                    {images.map((item, index) => (
-                      <div
-                        key={index}
-                        ref={(el) => {
-                          desktopSlideRefs.current[index] = el
-                        }}
-                        className="snap-center flex-shrink-0 w-full"
-                      >
-                        <div className="relative w-full aspect-[4/3] bg-gray-100 rounded-lg overflow-hidden">
-                          {item.type === "video" ? (
-                            <video
-                              src={item.src}
-                              controls
-                              className="absolute inset-0 w-full h-full object-contain"
-                              controlsList="nodownload"
-                            >
-                              Your browser does not support the video tag.
-                            </video>
-                          ) : (
-                            <img
-                              src={item.src || "/placeholder.svg"}
-                              alt={item.alt || `${unitName} - Image ${index + 1}`}
-                              className="absolute inset-0 w-full h-full object-contain"
-                            />
-                          )}
+                    {images.map((item, index) => {
+                      const isFloorPlan = item.alt?.toLowerCase().includes("floor plan") || 
+                                          item.src?.toLowerCase().includes("floor-plan") || 
+                                          item.src?.toLowerCase().includes("floorplan")
+                      return (
+                        <div
+                          key={index}
+                          ref={(el) => {
+                            desktopSlideRefs.current[index] = el
+                          }}
+                          className="snap-center flex-shrink-0 w-full"
+                        >
+                          <div className={`relative w-full ${isFloorPlan ? 'aspect-square' : 'aspect-[4/3]'} ${isFloorPlan ? 'bg-white' : 'bg-gray-100'} rounded-lg overflow-hidden`}>
+                            {item.type === "video" ? (
+                              <video
+                                src={item.src}
+                                controls
+                                className="absolute inset-0 w-full h-full object-contain"
+                                controlsList="nodownload"
+                              >
+                                Your browser does not support the video tag.
+                              </video>
+                            ) : (
+                              <img
+                                src={item.src || "/placeholder.svg"}
+                                alt={item.alt || `${unitName} - Image ${index + 1}`}
+                                className={`absolute inset-0 w-full h-full object-contain ${isFloorPlan ? 'p-4' : ''}`}
+                              />
+                            )}
+                          </div>
                         </div>
-                      </div>
-                    ))}
+                      )
+                    })}
                   </div>
 
                   <button
