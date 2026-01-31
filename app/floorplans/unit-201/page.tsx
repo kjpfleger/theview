@@ -90,7 +90,7 @@ export default function Unit201Page() {
   return (
     <UnitDetailTemplate
       unitName="UNIT 201"
-      unitType="3 Bedrooms, 2 Baths, Penthouse"
+      unitType="3 Bedroom, 2 Bath, Penthouse"
       bedrooms={3}
       bathrooms={2}
       squareFeet={1200}
