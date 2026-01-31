@@ -69,7 +69,7 @@ export default function FloorPlansPage() {
     {
       id: "104",
       name: "Unit 104",
-      type: "Corner 3 Bedrooms, 2 Baths",
+      type: "Corner 3 Bedroom, 2 Bath",
       bedrooms: 3,
       bathrooms: 2,
       sqft: 700,
@@ -85,7 +85,7 @@ export default function FloorPlansPage() {
     {
       id: "201",
       name: "Unit 201",
-      type: "3 Bedrooms, 2 Baths, Penthouse",
+      type: "3 Bedroom, 2 Bath, Penthouse",
       bedrooms: 3,
       bathrooms: 2,
       sqft: 1200,
