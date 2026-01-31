@@ -85,12 +85,12 @@ export default function Unit104Page() {
   return (
     <UnitDetailTemplate
       unitName="UNIT 104"
-      unitType="Corner 3 Bedrooms, 2 Baths"
+      unitType="Corner 3 Bedroom, 2 Bath"
       bedrooms={3}
       bathrooms={2}
-      squareFeet={700}
+      squareFeet={750}
       price="$1,050 / bed"
-      priceSecondary="$3,300 / unit"
+      priceSecondary="$3,200 / unit"
       available="AUGUST 2026"
       description="Corner three-bedroom, two-bath apartment with oversized windows and 10-foot ceilings throughout. Open kitchen and living layout with in-unit washer and dryer and stainless-steel appliances (refrigerator, oven range, microwave, dishwasher). Each bedroom features a spacious closet with built-in mirrors, and one bathroom includes a double-sink vanity so everyone has their own sink. Thermostat-controlled heating and air conditioning in each room. On-site parking included. A few seconds' walk to two AppalCART bus stops for easy access to campus and downtown Boone."
       images={images}
