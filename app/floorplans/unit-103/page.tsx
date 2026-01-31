@@ -74,7 +74,7 @@ export default function Unit103Page() {
           thumbnail: "/images/rbs-the-view-apts-103-0005.jpg",
         },
         {
-          src: "/images/unit-103-floorplan.png",
+          src: "/images/unit-103-floor-plan.jpg",
           alt: "Unit 103 Floor Plan",
           type: "image",
         },
