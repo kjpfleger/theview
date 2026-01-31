@@ -38,10 +38,10 @@ export default function FloorPlansPage() {
     {
       id: "102",
       name: "Unit 102",
-      type: "Corner 2 Bedrooms, 2 Baths",
+      type: "2 Bedroom, 2 Bath",
       bedrooms: 2,
       bathrooms: 2,
-      sqft: 600,
+      sqft: 650,
       price: "1,100/bed",
       image: "/images/unit-102.jpeg",
       features: ["Private bathrooms", "Open living area", "Full kitchen", "Ample storage"],
