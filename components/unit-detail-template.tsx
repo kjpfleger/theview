@@ -334,30 +334,30 @@ export function UnitDetailTemplate({
                   </div>
 
                   {/* Unit Stats */}
-                  <div className="flex items-center gap-6 py-4 border-y border-gray-200 mb-6">
+                  <div className="grid grid-cols-3 gap-4 py-4 border-y border-gray-200 mb-6">
                     <div className="flex items-center gap-2">
-                      <Bed className="h-5 w-5 text-orange-600" />
-                      <div className="flex flex-col">
-                        <span className="text-xl font-bold">{bedrooms}</span>
-                        <span className="text-xs text-gray-600 uppercase">
+                      <Bed className="h-5 w-5 text-orange-600 flex-shrink-0" />
+                      <div className="flex flex-col min-w-0">
+                        <span className="text-lg font-bold">{bedrooms}</span>
+                        <span className="text-[10px] text-gray-600 uppercase">
                           {bedrooms === "Studio" || bedrooms === 1 ? "Bedroom" : "Bedrooms"}
                         </span>
                       </div>
                     </div>
                     <div className="flex items-center gap-2">
-                      <Bath className="h-5 w-5 text-orange-600" />
-                      <div className="flex flex-col">
-                        <span className="text-xl font-bold">{bathrooms}</span>
-                        <span className="text-xs text-gray-600 uppercase">
+                      <Bath className="h-5 w-5 text-orange-600 flex-shrink-0" />
+                      <div className="flex flex-col min-w-0">
+                        <span className="text-lg font-bold">{bathrooms}</span>
+                        <span className="text-[10px] text-gray-600 uppercase">
                           {bathrooms === 1 ? "Bathroom" : "Bathrooms"}
                         </span>
                       </div>
                     </div>
                     <div className="flex items-center gap-2">
-                      <Maximize className="h-5 w-5 text-orange-600" />
-                      <div className="flex flex-col">
-                        <span className="text-xl font-bold">{squareFeet}</span>
-                        <span className="text-xs text-gray-600 uppercase">Square Feet</span>
+                      <Maximize className="h-5 w-5 text-orange-600 flex-shrink-0" />
+                      <div className="flex flex-col min-w-0">
+                        <span className="text-lg font-bold">{squareFeet}</span>
+                        <span className="text-[10px] text-gray-600 uppercase">Sq Ft</span>
                       </div>
                     </div>
                   </div>
