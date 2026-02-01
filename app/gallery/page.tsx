@@ -1,8 +1,9 @@
 "use client"
 
-import { useEffect, useState, useRef } from "react"
+import { useEffect, useState, useRef, useCallback } from "react"
 import Image from "next/image"
 import Footer from "@/components/Footer"
+import { X, ChevronLeft, ChevronRight } from "lucide-react"
 
 type TabType = "ALL" | "AMENITIES" | "APARTMENTS" | "VIDEO TOURS"
 
@@ -86,13 +87,120 @@ const tabs: TabType[] = ["ALL", "AMENITIES", "APARTMENTS", "VIDEO TOURS"]
 export default function GalleryPage() {
   const [activeTab, setActiveTab] = useState<TabType>("ALL")
   const tabsRef = useRef<HTMLDivElement>(null)
+  const [lightboxOpen, setLightboxOpen] = useState(false)
+  const [lightboxImages, setLightboxImages] = useState<{ src: string; alt: string }[]>([])
+  const [lightboxIndex, setLightboxIndex] = useState(0)
 
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
 
+  // Get all images for lightbox navigation based on current tab
+  const getAllCurrentImages = useCallback(() => {
+    if (activeTab === "APARTMENTS") return apartmentImages
+    if (activeTab === "AMENITIES") return amenityImages
+    return [...apartmentImages, ...amenityImages]
+  }, [activeTab])
+
+  const openLightbox = (images: { src: string; alt: string }[], index: number) => {
+    setLightboxImages(images)
+    setLightboxIndex(index)
+    setLightboxOpen(true)
+    document.body.style.overflow = "hidden"
+  }
+
+  const closeLightbox = () => {
+    setLightboxOpen(false)
+    document.body.style.overflow = ""
+  }
+
+  const goToPrevious = () => {
+    setLightboxIndex((prev) => (prev === 0 ? lightboxImages.length - 1 : prev - 1))
+  }
+
+  const goToNext = () => {
+    setLightboxIndex((prev) => (prev === lightboxImages.length - 1 ? 0 : prev + 1))
+  }
+
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (!lightboxOpen) return
+      if (e.key === "Escape") closeLightbox()
+      if (e.key === "ArrowLeft") goToPrevious()
+      if (e.key === "ArrowRight") goToNext()
+    }
+    window.addEventListener("keydown", handleKeyDown)
+    return () => window.removeEventListener("keydown", handleKeyDown)
+  }, [lightboxOpen, lightboxImages.length])
+
   return (
     <div className="min-h-screen">
+      {/* Lightbox Overlay */}
+      {lightboxOpen && lightboxImages.length > 0 && (
+        <div 
+          className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center"
+          onClick={closeLightbox}
+        >
+          {/* Close button */}
+          <button
+            onClick={closeLightbox}
+            className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors z-10"
+            aria-label="Close lightbox"
+          >
+            <X className="h-8 w-8" />
+          </button>
+
+          {/* Previous button */}
+          <button
+            onClick={(e) => {
+              e.stopPropagation()
+              goToPrevious()
+            }}
+            className="absolute left-4 top-1/2 -translate-y-1/2 text-white hover:text-gray-300 transition-colors z-10 p-2"
+            aria-label="Previous image"
+          >
+            <ChevronLeft className="h-10 w-10" />
+          </button>
+
+          {/* Image */}
+          <div 
+            className="relative w-full h-full max-w-5xl max-h-[85vh] mx-4"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <Image
+              src={lightboxImages[lightboxIndex].src || "/placeholder.svg"}
+              alt={lightboxImages[lightboxIndex].alt}
+              fill
+              className="object-contain"
+              sizes="100vw"
+              priority
+            />
+          </div>
+
+          {/* Next button */}
+          <button
+            onClick={(e) => {
+              e.stopPropagation()
+              goToNext()
+            }}
+            className="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:text-gray-300 transition-colors z-10 p-2"
+            aria-label="Next image"
+          >
+            <ChevronRight className="h-10 w-10" />
+          </button>
+
+          {/* Image counter */}
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white text-sm">
+            {lightboxIndex + 1} / {lightboxImages.length}
+          </div>
+
+          {/* Image alt text */}
+          <div className="absolute bottom-10 left-1/2 -translate-x-1/2 text-white text-center max-w-md px-4">
+            {lightboxImages[lightboxIndex].alt}
+          </div>
+        </div>
+      )}
       {/* Hero Section */}
       <section className="relative h-[450px] w-full">
         <Image
@@ -151,7 +259,7 @@ export default function GalleryPage() {
               {activeTab === "ALL" && (
                 <h3 className="text-xl font-semibold mb-6 text-gray-800">Apartments</h3>
               )}
-              <MasonryGallery images={apartmentImages} />
+              <MasonryGallery images={apartmentImages} onImageClick={(index) => openLightbox(apartmentImages, index)} />
             </div>
           )}
 
@@ -186,7 +294,7 @@ export default function GalleryPage() {
               {activeTab === "ALL" && (
                 <h3 className="text-xl font-semibold mb-6 text-gray-800">Amenities</h3>
               )}
-              <MasonryGallery images={amenityImages} />
+              <MasonryGallery images={amenityImages} onImageClick={(index) => openLightbox(amenityImages, index)} />
             </div>
           )}
 
@@ -205,7 +313,7 @@ export default function GalleryPage() {
   )
 }
 
-function MasonryGallery({ images }: { images: { src: string; alt: string }[] }) {
+function MasonryGallery({ images, onImageClick }: { images: { src: string; alt: string }[]; onImageClick?: (index: number) => void }) {
   if (images.length === 0) return null
 
   // Create a masonry-like layout with featured image
@@ -218,26 +326,33 @@ function MasonryGallery({ images }: { images: { src: string; alt: string }[] }) 
       {/* Top row: Large featured image + 2 stacked images */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {/* Featured large image */}
-        <div className="md:col-span-2 relative aspect-[4/3] md:aspect-[16/10] rounded-lg overflow-hidden">
+        <button 
+          className="md:col-span-2 relative aspect-[4/3] md:aspect-[16/10] rounded-lg overflow-hidden cursor-pointer"
+          onClick={() => onImageClick?.(0)}
+        >
           <Image
             src={featuredImage.src || "/placeholder.svg"}
             alt={featuredImage.alt}
             fill
             className="object-cover hover:scale-105 transition-transform duration-300"
           />
-        </div>
+        </button>
         
         {/* Right column - 2 stacked images */}
         <div className="flex flex-col gap-4">
           {rightColumnImages.map((image, index) => (
-            <div key={index} className="relative aspect-[4/3] rounded-lg overflow-hidden">
+            <button 
+              key={index} 
+              className="relative aspect-[4/3] rounded-lg overflow-hidden cursor-pointer"
+              onClick={() => onImageClick?.(index + 1)}
+            >
               <Image
                 src={image.src || "/placeholder.svg"}
                 alt={image.alt}
                 fill
                 className="object-cover hover:scale-105 transition-transform duration-300"
               />
-            </div>
+            </button>
           ))}
         </div>
       </div>
@@ -246,14 +361,18 @@ function MasonryGallery({ images }: { images: { src: string; alt: string }[] }) 
       {bottomImages.length > 0 && (
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {bottomImages.map((image, index) => (
-            <div key={index} className="relative aspect-square rounded-lg overflow-hidden">
+            <button 
+              key={index} 
+              className="relative aspect-square rounded-lg overflow-hidden cursor-pointer"
+              onClick={() => onImageClick?.(index + 3)}
+            >
               <Image
                 src={image.src || "/placeholder.svg"}
                 alt={image.alt}
                 fill
                 className="object-cover hover:scale-105 transition-transform duration-300"
               />
-            </div>
+            </button>
           ))}
         </div>
       )}

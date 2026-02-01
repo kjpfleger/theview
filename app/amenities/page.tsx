@@ -1,9 +1,11 @@
 "use client"
 
+import { Badge } from "@/components/ui/badge"
+
 import { useEffect } from "react"
 import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
 import { Waves, Utensils, Sun, Trash2, Zap, Thermometer, Maximize, Car, Home, Bath, Check } from "lucide-react"
+import { SharedButton } from "@/components/shared-button"
 import { motion } from "framer-motion"
 import Image from "next/image"
 import Footer from "@/components/Footer"
@@ -45,8 +47,8 @@ export default function AmenitiesPage() {
     },
     {
       icon: Trash2,
-      title: "Dishwasher & Garbage Disposal",
-      description: "Modern kitchen conveniences including dishwasher and garbage disposal.",
+      title: "Dishwasher and Microwave",
+      description: "Modern kitchen conveniences including dishwasher and microwave.",
     },
     {
       icon: Zap,
@@ -155,9 +157,6 @@ export default function AmenitiesPage() {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <div className="lg:col-span-1">
-              <Badge className="mb-4 bg-orange-600 hover:bg-orange-700 text-white px-4 py-2">
-                Our Apartment Features
-              </Badge>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
                 <span className="text-orange-600">APARTMENT</span>
                 <br />
@@ -173,6 +172,14 @@ export default function AmenitiesPage() {
                     <span className="text-gray-700">{feature}</span>
                   </div>
                 ))}
+              </div>
+              <div className="mt-8">
+                <SharedButton
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSekcj-ZKxZZ8ExLAw3by93i0y81oIp2p3lRoThEAJtWIdBvEw/viewform"
+                  target="_blank"
+                >
+                  APPLY NOW
+                </SharedButton>
               </div>
             </div>
             <div className="relative lg:col-span-2">
@@ -207,7 +214,6 @@ export default function AmenitiesPage() {
               />
             </div>
             <div>
-              <Badge className="mb-4 bg-orange-600 hover:bg-orange-700 text-white px-4 py-2">Community Features</Badge>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
                 <span className="text-orange-600">COMMUNITY</span>
                 <br />
@@ -254,7 +260,6 @@ export default function AmenitiesPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            <Badge className="mb-4 bg-orange-600 hover:bg-orange-700 text-white px-4 py-2">All View</Badge>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
               ALL VIEW <span className="text-orange-600">AMENITIES</span>
             </h2>

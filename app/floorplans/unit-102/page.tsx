@@ -6,12 +6,12 @@ export default function Unit102Page() {
   return (
     <UnitDetailTemplate
       unitName="UNIT 102"
-      unitType="Corner 2 Bedrooms, 2 Baths"
+      unitType="2 Bedroom, 2 Bath"
       bedrooms={2}
       bathrooms={2}
-      squareFeet={624}
+      squareFeet={650}
       price="$1,100 / bed"
-      priceSecondary="$3,300 / unit"
+      priceSecondary="$2,200 / unit"
       description="Corner 2-bedroom, 2-bathroom apartment with an open kitchen, dining, and living area. Spacious closets, in-unit washer dryer, gourmet kitchen with stainless steel appliances (refrigerator with water and ice, microwave, range, and dishwasher).
 
 Each bedroom has a private bathroom, with the primary bedroom featuring an en-suite. Individually controlled heating and air conditioning in each room. Both bathrooms have ample vanity storage and floor to ceiling shelves for linens and toiletries. On-site parking included. Located just a few seconds' walk from two AppalCART bus stops."
